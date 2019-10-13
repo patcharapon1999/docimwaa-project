@@ -1,0 +1,58 @@
+.btnStyle {
+    background-color: #0062FF;
+    color: white;
+    border-radius: 0;
+}
+
+/* .navbar-brand{
+    color: #323232;
+    font-size: 25px;;
+    font-weight: bold;
+} */
+
+.navbar {
+    background-color: white;
+}
+
+.navbar-toggler {
+    border-radius: 0;
+    background-color: #323232;
+}
+
+
+
+.navName {
+    color: #323232;
+    font-size: 25px;
+    ;
+    font-weight: bold;
+}
+
+
+.navItem {
+    color: #323232;
+}
+
+.mr-sm-2,
+.form-control {
+    border-radius: 0;
+}
+
+.user-pic {
+    width: 30px;
+    padding-left: 5px;
+    margin: 0;
+}
+
+.form-inline {
+    padding-right: 15px;
+}
+
+.signIn-nav {
+    color: #0062FF;
+}
+
+.dropdown-menu-right, .show,d.ropdown-menu, .dropdown-default{
+    border-radius: 0;
+
+}

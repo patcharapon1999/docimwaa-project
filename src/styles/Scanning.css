@@ -3,8 +3,7 @@
     background-image: url('../assets/images/bg2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: red;
-    height: 75%; /* Add this */
+    height: 250px; /* Add this */
     color: white;
     border-radius: 0;
     margin: 0;

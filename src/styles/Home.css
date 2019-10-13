@@ -1,44 +1,86 @@
 .jumbotron-home {
-    align-items: center;
-    background-image: url('../assets/images/bg1.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 75%; /* Add this */
-    color: white;
-    border-radius: 0;
-    margin: 0;
-  }
+  align-items: center;
+  background-image: url('../assets/images/bg1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 75%;
+  /* Add this */
+  color: white;
+  border-radius: 0;
+  margin: 0;
+}
 
-  .btnStyle{
-    border-radius: 0;
-    width: 150px;
-  }
+.btnStyle {
+  border-radius: 0;
+  width: 150px;
+}
 
-  .header-home{
-    margin-top: 200px;
-  }
-  
-  .header-name{
-      font-size: 60px;
-  }
+.header-home {
+  margin-top: 200px;
+}
 
-  .card-center{
-    padding-left: 25px;
-    padding-right: 25px;
-  }
+.header-name {
+  font-size: 60px;
+}
 
-  .card-body{
-    width: 100%;
-    border-radius: 0;
-    padding: 10px;
-    background-color: #3D3D3D;
-  }
+.card-center {
+  padding-left: 25px;
+  padding-right: 25px;
+}
 
-  .ad-bar{
-    background-color: #171717;
-    padding-top: 30px;;
-  }
+.card-body {
+  width: 100%;
+  border-radius: 0;
+  padding: 10px;
+  background-color: #3D3D3D;
+}
 
-  .login-modal {
-    
-  }
+.ad-bar {
+  background-color: #171717;
+  padding-top: 50px;
+  ;
+}
+
+#grad-line-home {
+  height: 10px;
+  background-color: #0062FF;
+  /* For browsers that do not support gradients */
+  background-image: linear-gradient(to right, #0062FF, #00F8FF);
+}
+
+.glyphicon-menu-down{
+  color: white;
+}
+
+.img-down-up{
+  width: 50px;
+  padding-bottom: 50px;
+  opacity: 0.5;
+}
+
+.img-down-up:hover{
+  opacity: 0.7;
+	transition: .5s ease-in-out;
+}
+
+.zoom {
+  transition: transform .2s; /* Animation */
+  margin: 0 auto;
+  transition: .5s ease;
+
+}
+
+.zoom:hover {
+  transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  opacity: .5;
+}
+
+
+.hover11 figure img {
+	opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.hover11 figure:hover img {
+	opacity: .5;
+}

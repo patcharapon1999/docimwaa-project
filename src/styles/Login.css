@@ -19,10 +19,27 @@
 .fg-pw {
     text-align: right;
 }
-
+.pw, .fg-pw, .chkbx, .line, .reg-txt, .reg-div, .login-div {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+}
 .login-btn {
     width: 50%;
 }
-
+.reg-txt {
+    font-size: 12px;
+    color: rgb(145, 145, 145);
+}
+.reg-link {
+    font-size: 12px;
+    color: #0062FF;
+}
+.space {
+    color: white;
+}
 
 

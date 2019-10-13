@@ -109,13 +109,6 @@ export default class Home extends Component {
             <Row className="text-center">
               <Col xs={12} sm={4} className="card-center">
                 <Card className="card-body zoom overlay" text="white">
-                  {/* <Button
-                  onClick={this.changeIcon}
-                  aria-controls="example-collapse-text"
-                  aria-expanded={open1}
-                >
-                  Test
-                </Button> */}
                   <Card.Body
                     onClick={() => this.setState({ open1: !open1 })}
                     aria-controls="example-collapse-text"

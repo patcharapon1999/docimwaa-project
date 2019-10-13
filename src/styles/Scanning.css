@@ -8,3 +8,35 @@
     border-radius: 0;
     margin: 0;
   }
+* {
+  box-sizing: border-box;
+}
+  
+.columnL {
+  float: left;
+  width: 50%;
+  text-align: center;
+  margin-top: 1%;
+  border-right: 1px solid rgb(196, 196, 196);
+}
+.columnR {
+  float: left;
+  width: 50%;
+  text-align: center;
+  margin-top: 1%;
+  border-left: 1px solid rgb(196, 196, 196);
+  
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.btn-div {
+  margin-left: 70%;
+}
+.submit-btn {
+  margin-top: 8%;
+  border-radius: 0;
+}

@@ -1,10 +1,15 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 import { Button, Jumbotron, Container, Row, Col, Card } from "react-bootstrap";
+=======
+import { Form, Button } from "react-bootstrap";
+>>>>>>> e7be1dbad351dcd318d47bc1cd8936072d5904f5
 
 export default class SignUp extends Component {
   render() {
     return (
       <div>
+<<<<<<< HEAD
         <Jumbotron className="jumbotron-option">
           <div className="header-option">
             <h1 className="header-name">Sigup</h1>
@@ -12,6 +17,44 @@ export default class SignUp extends Component {
         </Jumbotron>
 
         <div id="grad-line"></div>
+=======
+        <Form>
+          <Form.Row>
+            <Form.Group>
+              <Form.Label>First name</Form.Label>
+              <Form.Control placeholder="First name" />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label>Last name</Form.Label>
+              <Form.Control placeholder="Last name" />
+            </Form.Group>
+          </Form.Row>
+
+          <Form.Group controlId="formGroupEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" />
+          </Form.Group>
+
+          <Form.Group controlId="formGroupPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" />
+          </Form.Group>
+
+          <Form.Group controlId="formGroupPassword">
+            <Form.Label>Confirm password</Form.Label>
+            <Form.Control type="password" placeholder="Confirm password" />
+          </Form.Group>
+
+          <Form.Group id="formGridCheckbox">
+            <Form.Check type="checkbox" label="Check me out" />
+          </Form.Group>
+
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
+>>>>>>> e7be1dbad351dcd318d47bc1cd8936072d5904f5
       </div>
     );
   }

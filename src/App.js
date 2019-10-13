@@ -9,7 +9,6 @@ import Optional from "./components/Optional";
 import NoMatch from "./components/NoMatch";
 import Navbar from "./components/Navb";
 
-
 class App extends Component {
   render() {
     return (

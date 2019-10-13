@@ -15,6 +15,7 @@ import logo3 from "../assets/images/doctor-suitcase.png";
 import "../styles/Home.css";
 import Modal from "react-responsive-modal";
 import Login from "./Login";
+import { isCurrentUser } from "./Login";
 
   
 export default class Home extends Component {
@@ -28,17 +29,20 @@ export default class Home extends Component {
     };
   };
 
-  onOpenModal = () => {
+  onOpenModal = () => {/////////////
+    // alert(isCurrentUser)
+    // if (isCurrentUser) {
+    //   this.setState({ open: false });
+    //   document.location.href = '/scanning'
+    // } else {
+    //   this.setState({ open: true });
+    // }
     this.setState({ open: true });
   };
 
   onCloseModal = () => {
     this.setState({ open: false });
   };
-
-  clicked() {
-    document.documentElement.style.overflow = "hidden";
-  }
 
   render() {
     const { open } = this.state;
@@ -64,7 +68,7 @@ export default class Home extends Component {
             </p>
             <p>
               <div>
-                <Button className="btnStyle" onClick={this.onOpenModal}>
+                <Button className="btnStyle" onClick={this.onOpenModal} >{/* disabled={currentUser}*/}
                   Log in
                 </Button>
                 <Modal className="login-modal" 

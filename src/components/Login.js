@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 import auth from '../firebase'
 import Scanning from "./Scanning";
 
+export var isCurrentUser;
 export default class Login extends React.Component {
   constructor(props) {
     super(props)
-
     this.state = {
       email: '',
       password: '',
@@ -56,10 +56,12 @@ export default class Login extends React.Component {
       })
     })
   }
+  
 
   render() {
+
     const { message, currentUser } = this.state
-    const ColoredLine = ({ color }) => (
+    const ColorLine = ({ color }) => (
       <hr
           style={{
               color: color,
@@ -69,12 +71,13 @@ export default class Login extends React.Component {
       />
     );
     if (currentUser) {
+      // document.location.href = '/scanning'
       return(
         <div>
           <p>Hello {currentUser.email}</p>
           <button onClick={this.logout}>Logout</button>
         </div>
-      ) 
+      )
     }
 
     return (
@@ -96,14 +99,14 @@ export default class Login extends React.Component {
             <Form.Check type="checkbox" label="Remember me" />
           </Form.Group>
           {/* not correct. do for check only */}
-          <Link to="/scanning">
+          {/* <Link to="/scanning"> */}
               <Button className="login-btn" type="submit">
                 Login
               </Button>
-          </Link>
+          {/* </Link> */}
         </Form>
         <div className="reg-div">
-          <ColoredLine color="#D1D1D1" className="line"/>
+          <ColorLine color="#D1D1D1" className="line"/>
           <p className="reg-txt">Don't have an account? Create an<label className="space">_</label>
             <Link to="/" className="reg-link">
               DOCIMWAA
@@ -115,3 +118,4 @@ export default class Login extends React.Component {
     );
   }
 }
+

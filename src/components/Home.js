@@ -15,29 +15,32 @@ import logo3 from "../assets/images/doctor-suitcase.png";
 import "../styles/Home.css";
 import Modal from "react-responsive-modal";
 import Login from "./Login";
-import { isCurrentUser } from "./Login";
+import auth from '../firebase'
 
   
 export default class Home extends Component {
   constructor(props, context) {
     super(props, context);
+    this.txt = React.createRef();
     this.state = {
       open: false,
       open1: false, 
       open2: false, 
-      open3: false, 
+      open3: false,
     };
   };
+  
 
-  onOpenModal = () => {/////////////
-    // alert(isCurrentUser)
-    // if (isCurrentUser) {
-    //   this.setState({ open: false });
-    //   document.location.href = '/scanning'
-    // } else {
-    //   this.setState({ open: true });
-    // }
-    this.setState({ open: true });
+  onOpenModal = (event) => {/////////////
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        // alert(bitly.shorten(this.txt.value.innerText))
+        this.setState({ open: false });
+        document.location.href = '/scanning'
+      } else {
+        this.setState({ open: true });
+      }
+    })
   };
 
   onCloseModal = () => {
@@ -68,8 +71,8 @@ export default class Home extends Component {
             </p>
             <p>
               <div>
-                <Button className="btnStyle" onClick={this.onOpenModal} >{/* disabled={currentUser}*/}
-                  Log in
+                <Button className="btnStyle" onClick={this.onOpenModal} ref={this.txt}>{/* disabled={currentUser}*/}
+                  <label className="label">Log in</label>
                 </Button>
                 <Modal className="login-modal" 
                       onClose={this.onCloseModal} 

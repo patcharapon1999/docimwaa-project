@@ -3,9 +3,7 @@ import { Form, Button, Image } from "react-bootstrap";
 import "../styles/Login.css";
 import { Link } from "react-router-dom";
 import auth from '../firebase'
-import Scanning from "./Scanning";
 
-export var isCurrentUser;
 export default class Login extends React.Component {
   constructor(props) {
     super(props)
@@ -15,6 +13,10 @@ export default class Login extends React.Component {
       message: '',
       currentUser: null
     }
+  }
+
+  static getCurrentUser() {
+    return this.currentUser;
   }
 
   componentDidMount() {

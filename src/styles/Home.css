@@ -1,0 +1,44 @@
+.jumbotron-home {
+    align-items: center;
+    background-image: url('../assets/images/bg1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 75%; /* Add this */
+    color: white;
+    border-radius: 0;
+    margin: 0;
+  }
+
+  .btnStyle{
+    border-radius: 0;
+    width: 150px;
+  }
+
+  .header-home{
+    margin-top: 200px;
+  }
+  
+  .header-name{
+      font-size: 60px;
+  }
+
+  .card-center{
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .card-body{
+    width: 100%;
+    border-radius: 0;
+    padding: 10px;
+    background-color: #3D3D3D;
+  }
+
+  .ad-bar{
+    background-color: #171717;
+    padding-top: 30px;;
+  }
+
+  .login-modal {
+    
+  }

@@ -1,0 +1,28 @@
+
+.form-email {
+    padding-top: 4%;
+}
+.hind-name {
+    color: white;
+}
+.bold-name {
+    color: #0062FF;
+}
+.login-name {
+    margin-bottom: 1em;
+}
+
+.login-btn {
+    border-radius: 0;
+}
+
+.fg-pw {
+    text-align: right;
+}
+
+.login-btn {
+    width: 50%;
+}
+
+
+

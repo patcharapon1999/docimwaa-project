@@ -1,5 +1,13 @@
 import React, { Component } from "react";
-import { Button, Jumbotron, Container, Collapse, Col } from "react-bootstrap";
+import {
+  Button,
+  Jumbotron,
+  Container,
+  Collapse,
+  Col,
+  Card,
+  Form
+} from "react-bootstrap";
 import "../styles/Scanning.css";
 import { Link } from "react-router-dom";
 
@@ -13,32 +21,99 @@ export default class Scanning extends Component {
           </div>
         </Jumbotron>
         <div id="grad-line"></div>
-          <div class="row">
-            <div class="columnL">
-              <p className="qsl">scanning question</p>
-              <p className="qsl">scanning question</p>
-              <p className="qsl">scanning question</p>
-              <p className="qsl">scanning question</p>
-              <p className="qsl">scanning question</p>
-            </div>
-            <div class="columnR">
-              <p className="qsr">scanning question</p>
-              <p className="qsr">scanning question</p>
-              <p className="qsr">scanning question</p>
-              <p className="qsr">scanning question</p>
-              <p className="qsr">scanning question</p>
-            </div>
-           </div>
-        <Col xs={12} sm={3} className="btn-div">
-            <div>
-              <Link to="/optional">
-                <Button className="submit-btn" type="submit">
-                  Submit
-                </Button>
-              </Link>
-            </div>
-        </Col>
-          
+        <Container>
+          <div className="qs-div">
+            <Form>
+              <Card>
+                <Form.Group>
+                  <Form.Label>Worse at home</Form.Label><br></br>
+                    <Form.Check
+                      inline
+                      type="radio"
+                      label="Yes"
+                      name="q1"
+                      id="rad1-1"
+                    />
+                    <Form.Check
+                    inline
+                      type="radio"
+                      label="No"
+                      name="q1"
+                      id="rad1-2"
+                    />
+                </Form.Group>
+              </Card>
+
+              <Card>
+                <Form.Group>
+                  <Form.Label>Better when away from home</Form.Label><br></br>
+                    <Form.Check
+                      inline
+                      type="radio"
+                      label="Yes"
+                      name="q2"
+                      id="rad2-1"
+                    />
+                    <Form.Check
+                    inline
+                      type="radio"
+                      label="No"
+                      name="q2"
+                      id="rad2-1"
+                    />
+                </Form.Group>
+              </Card>
+
+              <Card>
+                <Form.Group>
+                  <Form.Label>Evidence of having known agent in the workplace</Form.Label><br></br>
+                    <Form.Check
+                      inline
+                      type="radio"
+                      label="Yes"
+                      name="q3"
+                      id="rad3-1"
+                    />
+                    <Form.Check
+                    inline
+                      type="radio"
+                      label="No"
+                      name="q3"
+                      id="rad3-2"
+                    />
+                </Form.Group>
+              </Card>
+
+              <Card>
+                <Form.Group>
+                  <Form.Label>Evidence of having known agent in the workplace</Form.Label><br></br>
+                    <Form.Check
+                      inline
+                      type="radio"
+                      label="Yes"
+                      name="q4"
+                      id="rad4-1"
+                    />
+                    <Form.Check
+                    inline
+                      type="radio"
+                      label="No"
+                      name="q4"
+                      id="rad4-2"
+                    />
+                </Form.Group>
+              </Card>
+            </Form>
+          </div> 
+    
+          <div className="btn-div">
+            <Link to="/optional">
+              <Button className="submit-btn" type="submit">
+                Submit
+              </Button>
+            </Link>
+          </div>
+        </Container>
       </div>
     );
   }

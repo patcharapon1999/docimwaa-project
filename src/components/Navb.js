@@ -26,10 +26,13 @@ import {
   MDBContainer,
   MDBIcon
 } from "mdbreact";
+import auth from "../firebase";
+import Home from "./Home";
 
 export default class navbar extends Component {
   state = {
-    collapseID: ""
+    collapseID: "",
+    loggedIn: ""
   };
 
   toggleCollapse = collapseID => () =>
@@ -37,7 +40,30 @@ export default class navbar extends Component {
       collapseID: prevState.collapseID !== collapseID ? collapseID : ""
     }));
 
+  isLoggedIn() {
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        this.setState({ loggedIn: "Log out" });
+      }
+    });
+  }
+
+  logout = e => {
+    setTimeout(function() {
+      e.preventDefault();
+      auth.signOut().then(response => {
+        this.setState({
+          currentUser: null
+        });
+      });
+      document.location.href = "/";
+    }, 1000);
+  };
+
   render() {
+    const { loggedIn } = this.state;
+    // {this.isLoggedIn()}
+
     return (
       // <Navbar expand="lg" fixed="top">
       //   <Navbar.Brand href="./">DOCIMWAA</Navbar.Brand>
@@ -60,13 +86,17 @@ export default class navbar extends Component {
         <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse3")} />
         <MDBCollapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>
           <MDBNavbarNav left>
-            <MDBNavItem active  >
-              <MDBNavLink  to="/"><span className = "navItem">Home</span>  </MDBNavLink>
+            <MDBNavItem active>
+              <MDBNavLink to="/">
+                <span className="navItem">Home</span>{" "}
+              </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="#!"><span className = "navItem">About</span> </MDBNavLink>
+              <MDBNavLink to="#!">
+                <span className="navItem">About</span>{" "}
+              </MDBNavLink>
             </MDBNavItem>
-            
+
             {/* <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav caret>
@@ -99,6 +129,9 @@ export default class navbar extends Component {
                 <MDBDropdownMenu className="dropdown-default" right>
                   <MDBDropdownItem href="#!">Log In</MDBDropdownItem>
                   <MDBDropdownItem href="#!">Sign Up</MDBDropdownItem>
+                  <MDBDropdownItem onClick={this.logout}>
+                    Log Out
+                  </MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavItem>

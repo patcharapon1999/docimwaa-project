@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Form, Button, Image } from "react-bootstrap";
 import "../styles/Login.css";
 import { Link } from "react-router-dom";
-import auth from '../firebase'
+import auth from '../firebase';
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -13,10 +13,6 @@ export default class Login extends React.Component {
       message: '',
       currentUser: null
     }
-  }
-
-  static getCurrentUser() {
-    return this.currentUser;
   }
 
   componentDidMount() {
@@ -50,36 +46,20 @@ export default class Login extends React.Component {
       })
   }
 
-  logout = e => {
-    e.preventDefault()
-    auth.signOut().then(response => {
-      this.setState({
-        currentUser: null
-      })
-    })
-  }
-  
 
   render() {
-
     const { message, currentUser } = this.state
     const ColorLine = ({ color }) => (
-      <hr
-          style={{
-              color: color,
-              backgroundColor: color,
-              height: 1
-          }}
-      />
+      <hr style={{color: color, backgroundColor: color, height: 1}}/>
     );
     if (currentUser) {
-      // document.location.href = '/scanning'
-      return(
-        <div>
-          <p>Hello {currentUser.email}</p>
-          <button onClick={this.logout}>Logout</button>
-        </div>
-      )
+      document.location.href = '/scanning'
+      // return(
+      //   <div>
+      //     <p>Hello {currentUser.email}</p>
+      //     <button onClick={this.logout}>Logout</button>
+      //   </div>
+      // )
     }
 
     return (

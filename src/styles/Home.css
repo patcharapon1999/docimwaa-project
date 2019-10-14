@@ -13,6 +13,8 @@
 .btnStyle {
   border-radius: 0;
   width: 150px;
+  height: 40px;
+  border: 5px;
 }
 
 .header-home {

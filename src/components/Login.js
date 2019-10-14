@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { Form, Button, Image } from "react-bootstrap";
 import "../styles/Login.css";
 import { Link } from "react-router-dom";
-import auth from '../firebase'
-import Scanning from "./Scanning";
+import auth from '../firebase';
 
 export var isCurrentUser;
 export default class Login extends React.Component {
@@ -62,22 +61,16 @@ export default class Login extends React.Component {
 
     const { message, currentUser } = this.state
     const ColorLine = ({ color }) => (
-      <hr
-          style={{
-              color: color,
-              backgroundColor: color,
-              height: 1
-          }}
-      />
+      <hr style={{color: color, backgroundColor: color, height: 1}}/>
     );
     if (currentUser) {
-      // document.location.href = '/scanning'
-      return(
-        <div>
-          <p>Hello {currentUser.email}</p>
-          <button onClick={this.logout}>Logout</button>
-        </div>
-      )
+      document.location.href = '/scanning'
+      // return(
+      //   <div>
+      //     <p>Hello {currentUser.email}</p>
+      //     <button onClick={this.logout}>Logout</button>
+      //   </div>
+      // )
     }
 
     return (

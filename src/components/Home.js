@@ -17,7 +17,8 @@ import iconUp from "../assets/images/thin-arrowheads-pointing-up.png";
 import "../styles/Home.css";
 import Modal from "react-responsive-modal";
 import Login from "./Login";
-import { isCurrentUser } from "./Login";
+import auth from '../firebase';
+import ReactDOM from 'react-dom';
 
 export default class Home extends Component {
   constructor(props, context) {
@@ -28,6 +29,8 @@ export default class Home extends Component {
       open2: false,
       open3: false,
       iconChange: iconDown,
+      txt: "Log in",
+      currentUser: null
     };
   }
 
@@ -41,15 +44,29 @@ export default class Home extends Component {
     }
   };
 
+  componentDidMount() {
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        document.getElementsByClassName("btnStyle")[0].style.backgroundColor = 'red';
+        this.setState({ txt: "Scanning" });
+      } else {
+        document.getElementsByClassName("btnStyle")[0].style.backgroundColor = '#0062FF';
+        this.setState({ txt: "Log in" });
+      }
+    })
+  }
+
+  
   onOpenModal = () => {/////////////
-    // alert(isCurrentUser)
-    // if (isCurrentUser) {
-    //   this.setState({ open: false });
-    //   document.location.href = '/scanning'
-    // } else {
-    //   this.setState({ open: true });
-    // }
-    this.setState({ open: true });
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        this.setState({currentUser: user})
+        this.setState({ open: false });
+        document.location.href = '/scanning'
+      } else {
+        this.setState({ open: true });
+      }
+    })
   };
 
   onCloseModal = () => {
@@ -57,14 +74,14 @@ export default class Home extends Component {
   };
 
   render() {
-    const { open } = this.state;
+    const { open } = this.state;//open login modal
     const { open1 } = this.state;
     const { open2 } = this.state;
     const { open3 } = this.state;
     const { iconChange } = this.state;
-
+    const { txt } = this.state;
+   
     return (
-    
       <div>
         <Jumbotron className="jumbotron-home">
           <div className="header-home">
@@ -82,9 +99,8 @@ export default class Home extends Component {
             </p>
             <p>
               <div>
-                <Button className="btnStyle" onClick={this.onOpenModal} >{/* disabled={currentUser}*/}
-                  {}
-                </Button>
+                <input className="btnStyle" type="submit" onClick={this.onOpenModal} value={txt}></input>
+                {/* <Button className="btnStyle" onClick={this.onOpenModal} value={this.state.txt}></Button> */}
                 <Modal
                   className="login-modal"
                   onClose={this.onCloseModal}

@@ -7,9 +7,12 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Scanning from "./components/Scanning";
 import Optional from "./components/Optional";
+import SearchByJob from "./components/SearchingByJob";
+import ForwardGuideline from "./components/ForwardGuideline";
+import About from "./components/About";
+
 import NoMatch from "./components/NoMatch";
 import Navbar from "./components/Navb";
-
 
 class App extends Component {
   render() {
@@ -23,6 +26,9 @@ class App extends Component {
               <Route path="/signUp" component={SignUp} />
               <Route path="/scanning" component={Scanning} />
               <Route path="/optional" component={Optional} />
+              <Route path="/searchByJob" component={SearchByJob} />
+              <Route path="/forwardGuideline" component={ForwardGuideline} />
+              <Route path="/About" component={About} />
               <Route component={NoMatch} />
             </Switch>
         </Router>

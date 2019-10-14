@@ -55,18 +55,24 @@ export default class navbar extends Component {
       // </Navbar>
       <MDBNavbar expand="md">
         <MDBNavbarBrand>
+          <MDBNavLink to="/">
           <strong className="navName">DOCIMWAA</strong>
+          </MDBNavLink>
         </MDBNavbarBrand>
         <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse3")} />
         <MDBCollapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>
           <MDBNavbarNav left>
-            <MDBNavItem active  >
-              <MDBNavLink  to="/"><span className = "navItem">Home</span>  </MDBNavLink>
+            <MDBNavItem active>
+              <MDBNavLink to="/">
+                <span className="navItem">Home</span>
+              </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="#!"><span className = "navItem">About</span> </MDBNavLink>
+              <MDBNavLink to="/about">
+                <span className="navItem">About</span>
+              </MDBNavLink>
             </MDBNavItem>
-            
+
             {/* <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav caret>

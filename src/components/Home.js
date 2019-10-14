@@ -17,6 +17,7 @@ import iconUp from "../assets/images/thin-arrowheads-pointing-up.png";
 import "../styles/Home.css";
 import Modal from "react-responsive-modal";
 import Login from "./Login";
+import { isCurrentUser } from "./Login";
 
 export default class Home extends Component {
   constructor(props, context) {
@@ -26,7 +27,7 @@ export default class Home extends Component {
       open1: false,
       open2: false,
       open3: false,
-      iconChange: iconDown
+      iconChange: iconDown,
     };
   }
 
@@ -40,17 +41,20 @@ export default class Home extends Component {
     }
   };
 
-  onOpenModal = () => {
+  onOpenModal = () => {/////////////
+    // alert(isCurrentUser)
+    // if (isCurrentUser) {
+    //   this.setState({ open: false });
+    //   document.location.href = '/scanning'
+    // } else {
+    //   this.setState({ open: true });
+    // }
     this.setState({ open: true });
   };
 
   onCloseModal = () => {
     this.setState({ open: false });
   };
-
-  clicked() {
-    document.documentElement.style.overflow = "hidden";
-  }
 
   render() {
     const { open } = this.state;
@@ -78,8 +82,8 @@ export default class Home extends Component {
             </p>
             <p>
               <div>
-                <Button className="btnStyle" onClick={this.onOpenModal}>
-                  Log in
+                <Button className="btnStyle" onClick={this.onOpenModal} >{/* disabled={currentUser}*/}
+                  {}
                 </Button>
                 <Modal
                   className="login-modal"
@@ -109,6 +113,13 @@ export default class Home extends Component {
             <Row className="text-center">
               <Col xs={12} sm={4} className="card-center">
                 <Card className="card-body zoom overlay" text="white">
+                  {/* <Button
+                  onClick={this.changeIcon}
+                  aria-controls="example-collapse-text"
+                  aria-expanded={open1}
+                >
+                  Test
+                </Button> */}
                   <Card.Body
                     onClick={() => this.setState({ open1: !open1 })}
                     aria-controls="example-collapse-text"

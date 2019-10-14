@@ -16,9 +16,19 @@
 
 .navbar-toggler {
     border-radius: 0;
-    background-color: #323232;
+    background-color: Transparent;
 }
 
+.nav-link{
+    padding: 0;
+}
+.navbar-toggler:hover{
+    opacity: .7;
+}
+.navbar-toggler-icon {
+    border-radius: 0;
+    background-image: url(../assets/images/collapse-button.png);
+}
 
 
 .navName {

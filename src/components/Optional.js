@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../styles/Optional.css";
-import { Button, Jumbotron, Container, Row, Col, Card } from "react-bootstrap";
+import {Jumbotron, Row, Col, Card } from "react-bootstrap";
 import logo1 from "../assets/images/magnifying-glass.png";
 import logo2 from "../assets/images/ambulance.png";
 import logo3 from "../assets/images/doctor-suitcase.png";

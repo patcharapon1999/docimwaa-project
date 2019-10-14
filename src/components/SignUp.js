@@ -1,23 +1,10 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
-import { Button, Jumbotron, Container, Row, Col, Card } from "react-bootstrap";
-=======
 import { Form, Button } from "react-bootstrap";
->>>>>>> e7be1dbad351dcd318d47bc1cd8936072d5904f5
 
 export default class SignUp extends Component {
   render() {
     return (
       <div>
-<<<<<<< HEAD
-        <Jumbotron className="jumbotron-option">
-          <div className="header-option">
-            <h1 className="header-name">Sigup</h1>
-          </div>
-        </Jumbotron>
-
-        <div id="grad-line"></div>
-=======
         <Form>
           <Form.Row>
             <Form.Group>
@@ -54,7 +41,6 @@ export default class SignUp extends Component {
             Submit
           </Button>
         </Form>
->>>>>>> e7be1dbad351dcd318d47bc1cd8936072d5904f5
       </div>
     );
   }

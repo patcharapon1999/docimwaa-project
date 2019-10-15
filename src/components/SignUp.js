@@ -1,5 +1,15 @@
-import React, { Component } from "react";
-import { Button, Jumbotron, Container, Row, Col, Card, Form } from "react-bootstrap";
+import React, { Component, useState } from "react";
+import {
+  Button,
+  Jumbotron,
+  Container,
+  Row,
+  Col,
+  Card,
+  Form,
+  InputGroup
+} from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "../styles/SignUp.css";
 
 export default class SignUp extends Component {
@@ -11,17 +21,18 @@ export default class SignUp extends Component {
             <h1 className="header-name">Sigup</h1>
           </div>
         </Jumbotron>
-        
+
         <div id="grad-line"></div>
 
         <Container className="form-signUp">
           <Card>
             <Container className="form-signUp-In">
+              
               <Form>
                 <Form.Row>
                   <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>First name</Form.Label>
-                    <Form.Control placeholder="First name" />
+                    <Form.Control placeholder="First name"/>
                   </Form.Group>
 
                   <Form.Group className="Lname" as={Col} controlId="formGridPassword">
@@ -46,7 +57,7 @@ export default class SignUp extends Component {
                 </Form.Group>
 
                 <Form.Group id="formGridCheckbox">
-                  <Form.Check type="checkbox" label="Check me out" />
+                  <Form.Check type="checkbox" label="Agree to terms and conditions" />
                 </Form.Group>
 
                 <Button className="btn" variant="primary" type="submit">

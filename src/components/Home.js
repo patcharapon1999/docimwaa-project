@@ -1,13 +1,5 @@
 import React, { Component } from "react";
-import {
-  Button,
-  Jumbotron,
-  Container,
-  Row,
-  Col,
-  Card,
-  Collapse
-} from "react-bootstrap";
+import { Jumbotron, Container, Row, Col, Card, Collapse } from "react-bootstrap";
 import "../styles/navbar.css";
 import logo1 from "../assets/images/magnifying-glass.png";
 import logo2 from "../assets/images/ambulance.png";
@@ -18,7 +10,6 @@ import "../styles/Home.css";
 import Modal from "react-responsive-modal";
 import Login from "./Login";
 import auth from '../firebase';
-import ReactDOM from 'react-dom';
 
 export default class Home extends Component {
   constructor(props, context) {

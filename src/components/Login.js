@@ -4,7 +4,6 @@ import "../styles/Login.css";
 import { Link } from "react-router-dom";
 import auth from '../firebase';
 
-export var isCurrentUser;
 export default class Login extends React.Component {
   constructor(props) {
     super(props)
@@ -47,18 +46,8 @@ export default class Login extends React.Component {
       })
   }
 
-  logout = e => {
-    e.preventDefault()
-    auth.signOut().then(response => {
-      this.setState({
-        currentUser: null
-      })
-    })
-  }
-  
 
   render() {
-
     const { message, currentUser } = this.state
     const ColorLine = ({ color }) => (
       <hr style={{color: color, backgroundColor: color, height: 1}}/>
@@ -101,7 +90,7 @@ export default class Login extends React.Component {
         <div className="reg-div">
           <ColorLine color="#D1D1D1" className="line"/>
           <p className="reg-txt">Don't have an account? Create an<label className="space">_</label>
-            <Link to="/" className="reg-link">
+            <Link to="/signUp" className="reg-link">
               DOCIMWAA
             </Link>
           </p>

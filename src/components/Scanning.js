@@ -21,90 +21,88 @@ export default class Scanning extends Component {
           </div>
         </Jumbotron>
         <div id="grad-line"></div>
-        <Container>
-          <div className="qs-div">
-            <Form>
-              <Card>
-                <Form.Group>
-                  <Form.Label>Worse at home</Form.Label><br></br>
-                    <Form.Check
-                      inline
-                      type="radio"
-                      label="Yes"
-                      name="q1"
-                      id="rad1-1"
-                    />
-                    <Form.Check
+        <Container className="qs-div">
+          <Form>
+            <Card>
+              <Form.Group>
+                <Form.Label>Worse at home</Form.Label><br></br>
+                  <Form.Check
                     inline
-                      type="radio"
-                      label="No"
-                      name="q1"
-                      id="rad1-2"
-                    />
-                </Form.Group>
-              </Card>
+                    type="radio"
+                    label="Yes"
+                    name="q1"
+                    id="rad1-1"
+                  />
+                  <Form.Check
+                  inline
+                    type="radio"
+                    label="No"
+                    name="q1"
+                    id="rad1-2"
+                  />
+              </Form.Group>
+            </Card>
 
-              <Card>
-                <Form.Group>
-                  <Form.Label>Better when away from home</Form.Label><br></br>
-                    <Form.Check
-                      inline
-                      type="radio"
-                      label="Yes"
-                      name="q2"
-                      id="rad2-1"
-                    />
-                    <Form.Check
+            <Card>
+              <Form.Group>
+                <Form.Label>Better when away from home</Form.Label><br></br>
+                  <Form.Check
                     inline
-                      type="radio"
-                      label="No"
-                      name="q2"
-                      id="rad2-1"
-                    />
-                </Form.Group>
-              </Card>
+                    type="radio"
+                    label="Yes"
+                    name="q2"
+                    id="rad2-1"
+                  />
+                  <Form.Check
+                  inline
+                    type="radio"
+                    label="No"
+                    name="q2"
+                    id="rad2-1"
+                  />
+              </Form.Group>
+            </Card>
 
-              <Card>
-                <Form.Group>
-                  <Form.Label>Evidence of having known agent in the workplace</Form.Label><br></br>
-                    <Form.Check
-                      inline
-                      type="radio"
-                      label="Yes"
-                      name="q3"
-                      id="rad3-1"
-                    />
-                    <Form.Check
+            <Card>
+              <Form.Group>
+                <Form.Label>Evidence of having known agent in the workplace</Form.Label><br></br>
+                  <Form.Check
                     inline
-                      type="radio"
-                      label="No"
-                      name="q3"
-                      id="rad3-2"
-                    />
-                </Form.Group>
-              </Card>
+                    type="radio"
+                    label="Yes"
+                    name="q3"
+                    id="rad3-1"
+                  />
+                  <Form.Check
+                  inline
+                    type="radio"
+                    label="No"
+                    name="q3"
+                    id="rad3-2"
+                  />
+              </Form.Group>
+            </Card>
 
-              <Card>
-                <Form.Group>
-                  <Form.Label>Evidence of having known agent in the workplace</Form.Label><br></br>
-                    <Form.Check
-                      inline
-                      type="radio"
-                      label="Yes"
-                      name="q4"
-                      id="rad4-1"
-                    />
-                    <Form.Check
+            <Card>
+              <Form.Group>
+                <Form.Label>Evidence of having known agent in the workplace</Form.Label><br></br>
+                  <Form.Check
                     inline
-                      type="radio"
-                      label="No"
-                      name="q4"
-                      id="rad4-2"
-                    />
-                </Form.Group>
-              </Card>
-            </Form>
-          </div> 
+                    type="radio"
+                    label="Yes"
+                    name="q4"
+                    id="rad4-1"
+                  />
+                  <Form.Check
+                  inline
+                    type="radio"
+                    label="No"
+                    name="q4"
+                    id="rad4-2"
+                  />
+              </Form.Group>
+            </Card>
+          </Form>
     
           <div className="btn-div">
             <Link to="/optional">

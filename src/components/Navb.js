@@ -32,7 +32,10 @@ import Home from "./Home";
 export default class navbar extends Component {
   state = {
     collapseID: "",
-    loggedIn: ""
+    loggedIn: "",
+    showLogout: false,
+    showSignUp: true,
+    showLogIn: true
   };
 
   toggleCollapse = collapseID => () =>
@@ -40,28 +43,35 @@ export default class navbar extends Component {
       collapseID: prevState.collapseID !== collapseID ? collapseID : ""
     }));
 
-  isLoggedIn() {
+    componentDidMount() {
     auth.onAuthStateChanged(user => {
       if (user) {
-        this.setState({ loggedIn: "Log out" });
+        this.setState({ showLogout: true })
+        this.setState({ showSignUp: false })
+        this.setState({ showLogIn: false })
+      } else {
+        this.setState({ showLogout: false })
+        this.setState({ showSignUp: true })
+        this.setState({ showLogIn: true })
       }
     });
   }
 
-  logout = e => {
-    setTimeout(function() {
-      e.preventDefault();
-      auth.signOut().then(response => {
-        this.setState({
-          currentUser: null
-        });
+  logout = async e => {
+    e.preventDefault();
+    await auth.signOut().then(response => {
+      this.setState({
+        currentUser: null
       });
-      document.location.href = "/";
-    }, 1000);
+    });
+    document.location.href = "/";
   };
 
   render() {
-    const { loggedIn } = this.state;
+    const { showLogout } = this.state;
+    const { showSignUp } = this.state;
+    const { showLogIn } = this.state;
+    
     // {this.isLoggedIn()}
 
     return (
@@ -129,11 +139,21 @@ export default class navbar extends Component {
                   />
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default" right>
-                  <MDBDropdownItem href="#!">Log In</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Sign Up</MDBDropdownItem>
-                  <MDBDropdownItem onClick={this.logout}>
-                    Log Out
-                  </MDBDropdownItem>
+                  {/* <MDBDropdownItem href="#!">Log In</MDBDropdownItem> */}
+                  {/* <MDBDropdownItem href="#!">Sign Up</MDBDropdownItem> */}
+                  {/* <MDBDropdownItem onClick={this.logout}> */}
+                    { showLogIn 
+                          ? <MDBDropdownItem href="#!">Log In</MDBDropdownItem>
+                          : null
+                    }
+                    { showSignUp 
+                        ? <MDBDropdownItem href="#!">Sign Up</MDBDropdownItem>
+                        : null
+                    }
+                    { showLogout 
+                      ? <MDBDropdownItem onClick={this.logout}>Log out</MDBDropdownItem>
+                      : null
+                    }
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavItem>

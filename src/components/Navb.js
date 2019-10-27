@@ -30,13 +30,16 @@ import auth from "../firebase";
 import Home from "./Home";
 
 export default class navbar extends Component {
-  state = {
-    collapseID: "",
-    loggedIn: "",
-    showLogout: false,
-    showSignUp: true,
-    showLogIn: true
-  };
+  constructor(props) {
+    super(props)
+    this.state = {
+      collapseID: "",
+      loggedIn: "",
+      showLogout: false,
+      showSignUp: true,
+      showLogIn: true
+    };
+  }
 
   toggleCollapse = collapseID => () =>
     this.setState(prevState => ({
@@ -139,15 +142,12 @@ export default class navbar extends Component {
                   />
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default" right>
-                  {/* <MDBDropdownItem href="#!">Log In</MDBDropdownItem> */}
-                  {/* <MDBDropdownItem href="#!">Sign Up</MDBDropdownItem> */}
-                  {/* <MDBDropdownItem onClick={this.logout}> */}
                     { showLogIn 
-                          ? <MDBDropdownItem href="#!">Log In</MDBDropdownItem>
-                          : null
+                        ? <MDBDropdownItem onClick={(new Home().onOpenModal)}>Log In</MDBDropdownItem>
+                        : null
                     }
                     { showSignUp 
-                        ? <MDBDropdownItem href="#!">Sign Up</MDBDropdownItem>
+                        ? <MDBDropdownItem href="/signUp">Sign Up</MDBDropdownItem>
                         : null
                     }
                     { showLogout 

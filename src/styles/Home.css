@@ -1,6 +1,6 @@
 .jumbotron-home {
   align-items: center;
-  background-image: url('../assets/images/bg1.jpg');
+  background-image: url('../assets/images/bg1-3.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   height: 75%;
@@ -18,7 +18,7 @@
 }
 
 .header-home {
-  margin-top: 200px;
+  margin-top: 270px;
 }
 
 .header-name {

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "../styles/Optional.css";
-import {Jumbotron, Row, Col, Card } from "react-bootstrap";
+import { Jumbotron, Row, Col, Card, Container } from "react-bootstrap";
 import logo1 from "../assets/images/magnifying-glass.png";
 import logo2 from "../assets/images/ambulance.png";
 import logo3 from "../assets/images/doctor-suitcase.png";
-
+import { Link } from "react-router-dom";
 
 export default class Optional extends Component {
   render() {
@@ -19,69 +19,75 @@ export default class Optional extends Component {
         <div id="grad-line"></div>
 
         <div className="option-content">
-          <Row className="text-center">
-            <Col xs={12} sm={3} className="card-center">
-              <Card className="card-body" text="white">
-                <Card.Body>
-                  <Card.Img
-                    variant="top"
-                    src={logo1}
-                    style={{ width: "30%" }}
-                  />
-                  <Card.Title className="card-tile-style">
-                    Dark Card Title
-                  </Card.Title>
-                </Card.Body>
-              </Card>
-              <br />
-            </Col>
-            <Col xs={12} sm={3} className="card-center">
-              <Card className="card-body" text="white">
-                <Card.Body>
-                  <Card.Img
-                    variant="top"
-                    src={logo1}
-                    style={{ width: "30%" }}
-                  />
-                  <Card.Title className="card-tile-style">
-                    Dark Card Title
-                  </Card.Title>
-                </Card.Body>
-              </Card>
-              <br />
-            </Col>
-            <Col xs={12} sm={3} className="card-center">
-              <Card className="card-body" text="white">
-                <Card.Body>
-                  <Card.Img
-                    variant="top"
-                    src={logo2}
-                    style={{ width: "30%" }}
-                  />
-                  <Card.Title className="card-tile-style">
-                    Dark Card Title
-                  </Card.Title>
-                </Card.Body>
-              </Card>
-              <br />
-            </Col>
-            <Col xs={12} sm={3} className="card-center">
-              <Card className="card-body" text="white">
-                <Card.Body>
-                  <Card.Img
-                    variant="top"
-                    src={logo3}
-                    style={{ width: "30%" }}
-                  />
-                  <Card.Title className="card-tile-style">
-                    Dark Card Title
-                  </Card.Title>
-                </Card.Body>
-              </Card>
-              <br />
-            </Col>
-          </Row>
+          <div class="container-fluid">
+            <Row className="text-center">
+              <Col xs={12} sm={3} className="card-center">
+                <Card className="card-body" text="white">
+                  <Card.Body>
+                    <Card.Img
+                      variant="top"
+                      src={logo1}
+                      style={{ width: "30%" }}
+                    />
+                    <Card.Title className="card-tile-style">
+                      Find asthma agents by name
+                    </Card.Title>
+                  </Card.Body>
+                </Card>
+                <br />
+              </Col>
+              <Col xs={12} sm={3} className="card-center">
+                <Card className="card-body" text="white">
+                  <Card.Body>
+                    <Card.Img
+                      variant="top"
+                      src={logo1}
+                      style={{ width: "30%" }}
+                    />
+                    <Card.Title className="card-tile-style">
+                      Find asthma agents by work
+                    </Card.Title>
+                  </Card.Body>
+                </Card>
+                <br />
+              </Col>
+              <Col xs={12} sm={3} className="card-center">
+                <Link to="/ForwardGuideline" style={{ textDecoration: 'none' }}>
+                  <Card className="card-body" text="white">
+                    <Card.Body>
+                      <Card.Img
+                        variant="top"
+                        src={logo2}
+                        style={{ width: "30%" }}
+                      />
+                      <Card.Title className="card-tile-style">
+                        Referral information
+                      </Card.Title>
+                    </Card.Body>
+                  </Card>
+                </Link>
+
+                <br />
+              </Col>
+              <Col xs={12} sm={3} className="card-center">
+                <Card className="card-body" text="white">
+                  <Card.Body>
+                    <Card.Img
+                      variant="top"
+                      src={logo3}
+                      style={{ width: "30%" }}
+                    />
+                    <Card.Title className="card-tile-style">
+                      Treatment guidelines
+                    </Card.Title>
+                  </Card.Body>
+                </Card>
+                <br />
+              </Col>
+            </Row>
+          </div>
         </div>
+
       </div>
     );
   }

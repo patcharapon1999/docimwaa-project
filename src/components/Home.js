@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Jumbotron, Container, Row, Col, Card, Collapse } from "react-bootstrap";
+import {
+  Jumbotron,
+  Container,
+  Row,
+  Col,
+  Card,
+  Collapse
+} from "react-bootstrap";
 import "../styles/navbar.css";
 import logo1 from "../assets/images/magnifying-glass.png";
 import logo2 from "../assets/images/ambulance.png";
@@ -9,7 +16,7 @@ import iconUp from "../assets/images/thin-arrowheads-pointing-up.png";
 import "../styles/Home.css";
 import Modal from "react-responsive-modal";
 import Login from "./Login";
-import auth from '../firebase';
+import auth from "../firebase";
 
 export default class Home extends Component {
   constructor(props, context) {
@@ -38,26 +45,28 @@ export default class Home extends Component {
   componentDidMount() {
     auth.onAuthStateChanged(user => {
       if (user) {
-        document.getElementsByClassName("btnStyle")[0].style.backgroundColor = 'red';
+        document.getElementsByClassName("btnStyle")[0].style.backgroundColor =
+          "red";
         this.setState({ txt: "Scanning" });
       } else {
-        document.getElementsByClassName("btnStyle")[0].style.backgroundColor = '#0062FF';
+        document.getElementsByClassName("btnStyle")[0].style.backgroundColor =
+          "#0062FF";
         this.setState({ txt: "Log in" });
       }
-    })
+    });
   }
 
-  
-  onOpenModal = () => {/////////////
+  onOpenModal = () => {
+    /////////////
     auth.onAuthStateChanged(user => {
       if (user) {
-        this.setState({currentUser: user})
+        this.setState({ currentUser: user });
         this.setState({ open: false });
-        document.location.href = '/scanning'
+        document.location.href = "/scanning";
       } else {
         this.setState({ open: true });
       }
-    })
+    });
   };
 
   onCloseModal = () => {
@@ -65,13 +74,13 @@ export default class Home extends Component {
   };
 
   render() {
-    const { open } = this.state;//open login modal
+    const { open } = this.state; //open login modal
     const { open1 } = this.state;
     const { open2 } = this.state;
     const { open3 } = this.state;
     const { iconChange } = this.state;
     const { txt } = this.state;
-   
+
     return (
       <div>
         <Jumbotron className="jumbotron-home">
@@ -81,16 +90,19 @@ export default class Home extends Component {
               asthmagens.
             </h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              <br></br>
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim
-              <br></br>
-              ad minim veniam, quis nostrud exercitation
+              web application that provides treatment guidelines and referral
+              information <br></br>on work-related asthma and finding
+              work-related asthma agents for medical graduates <br></br> to help
+              diagnose work-related asthma
             </p>
             <p>
               <div>
-                <input className="btnStyle" type="submit" onClick={this.onOpenModal} value={txt}></input>
+                <input
+                  className="btnStyle"
+                  type="submit"
+                  onClick={this.onOpenModal}
+                  value={txt}
+                ></input>
                 {/* <Button className="btnStyle" onClick={this.onOpenModal} value={this.state.txt}></Button> */}
                 <Modal
                   className="login-modal"
@@ -105,7 +117,6 @@ export default class Home extends Component {
             </p>
           </div>
         </Jumbotron>
-
         <div id="grad-line-home"></div>
 
         <div className="ad-bar">
@@ -120,15 +131,8 @@ export default class Home extends Component {
             <Row className="text-center">
               <Col xs={12} sm={4} className="card-center">
                 <Card className="card-body zoom overlay" text="white">
-                  {/* <Button
-                  onClick={this.changeIcon}
-                  aria-controls="example-collapse-text"
-                  aria-expanded={open1}
-                >
-                  Test
-                </Button> */}
                   <Card.Body
-                    onClick={() => this.setState({ open1: !open1 })}
+                    onClick={this.changeIcon}
                     aria-controls="example-collapse-text"
                     aria-expanded={open1}
                   >
@@ -137,16 +141,12 @@ export default class Home extends Component {
                       src={logo1}
                       style={{ width: "20%" }}
                     />
-                    <Card.Title className="card-tile-style">
-                      Dark Card Title
-                    </Card.Title>
+                    <Card.Title className="card-tile-style">Finding</Card.Title>
                     <Card.Text>
                       <Collapse in={this.state.open1}>
                         <div id="example-collapse-text">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high
-                          life accusamus terry richardson ad squid. Nihil anim
-                          keffiyeh helvetica, craft beer labore wes anderson
-                          cred nesciunt sapiente ea proident.
+                          Find the asthma agents by work and Find the asthma
+                          agents by name
                         </div>
                       </Collapse>
                     </Card.Text>
@@ -158,7 +158,7 @@ export default class Home extends Component {
               <Col xs={12} sm={4} className="card-center">
                 <Card className="card-body zoom" text="white">
                   <Card.Body
-                    onClick={() => this.setState({ open1: !open1 })}
+                    onClick={this.changeIcon}
                     aria-controls="example-collapse-text"
                     aria-expanded={open1}
                   >
@@ -168,15 +168,12 @@ export default class Home extends Component {
                       style={{ width: "20%" }}
                     />
                     <Card.Title className="card-tile-style">
-                      Dark Card Title
+                      Referral information
                     </Card.Title>
                     <Card.Text>
                       <Collapse in={this.state.open1}>
                         <div id="example-collapse-text">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high
-                          life accusamus terry richardson ad squid. Nihil anim
-                          keffiyeh helvetica, craft beer labore wes anderson
-                          cred nesciunt sapiente ea proident.
+                          show the referral information by using GPS
                         </div>
                       </Collapse>
                     </Card.Text>
@@ -187,7 +184,7 @@ export default class Home extends Component {
               <Col xs={12} sm={4} className="card-center">
                 <Card className="card-body zoom" text="white">
                   <Card.Body
-                    onClick={() => this.setState({ open1: !open1 })}
+                    onClick={this.changeIcon}
                     aria-controls="example-collapse-text"
                     aria-expanded={open1}
                   >
@@ -197,15 +194,12 @@ export default class Home extends Component {
                       style={{ width: "20%" }}
                     />
                     <Card.Title className="card-tile-style">
-                      Dark Card Title
+                      Treatment guidelines
                     </Card.Title>
                     <Card.Text>
                       <Collapse in={this.state.open1}>
                         <div id="example-collapse-text">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high
-                          life accusamus terry richardson ad squid. Nihil anim
-                          keffiyeh helvetica, craft beer labore wes anderson
-                          cred nesciunt sapiente ea proident.
+                          Show the treatment guidelines
                         </div>
                       </Collapse>
                     </Card.Text>

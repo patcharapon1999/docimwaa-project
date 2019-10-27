@@ -8,7 +8,7 @@ import {
 } from "react-google-maps";
 import Geocode from "react-geocode";
 import Autocomplete from "react-google-autocomplete";
-Geocode.setApiKey("xxx");
+Geocode.setApiKey("###");
 Geocode.enableDebug();
 
 class Map extends Component {
@@ -258,8 +258,9 @@ class Map extends Component {
             }}
           />
           <Marker />
+
           {/* For Auto complete Search Box */}
-          <Autocomplete
+          {/* <Autocomplete
             style={{
               width: "100%",
               height: "40px",
@@ -269,7 +270,8 @@ class Map extends Component {
             }}
             onPlaceSelected={this.onPlaceSelected}
             types={["(regions)"]}
-          />
+          /> */}
+          
         </GoogleMap>
       ))
     );
@@ -278,7 +280,7 @@ class Map extends Component {
       map = (
         <div>
           <div>
-            <div className="form-group">
+            {/* <div className="form-group">
               <label htmlFor="">City</label>
               <input
                 type="text"
@@ -321,11 +323,11 @@ class Map extends Component {
                 readOnly="readOnly"
                 value={this.state.address}
               />
-            </div>
+            </div> */}
           </div>
 
           <AsyncMap
-            googleMapURL="https://maps.googleapis.com/maps/api/js?key=xxx&libraries=places"
+            googleMapURL="https://maps.googleapis.com/maps/api/js?key=###&libraries=places"
             loadingElement={<div style={{ height: `100%` }} />}
             containerElement={<div style={{ height: this.props.height }} />}
             mapElement={<div style={{ height: `100%` }} />}

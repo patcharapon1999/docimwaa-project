@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Form, Button, Image } from "react-bootstrap";
+import React from "react";
+import { Form, Button } from "react-bootstrap";
 import "../styles/Login.css";
 import { Link } from "react-router-dom";
 import auth from '../firebase';
@@ -66,7 +66,7 @@ export default class Login extends React.Component {
       <div className="login-div">
         <Form onSubmit={this.onSubmit}>
           <Form.Group className="form-email">
-            <h3 className="login-name">login to <b className="bold-name">DOCIMWAA</b><b className="hind-name">____</b></h3>
+            <h3 className="login-name">login to <b className="bold-name">DOCIMWAA</b></h3>
             <Form.Control type="email" placeholder="Enter email" name="email" onChange={this.onChange}/>
           </Form.Group>
 
@@ -96,7 +96,6 @@ export default class Login extends React.Component {
           </p>
         </div>
       </div>
-  
     );
   }
 }

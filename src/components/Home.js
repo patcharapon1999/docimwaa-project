@@ -104,6 +104,7 @@ export default class Home extends Component {
                   center={true}
                   open={open}
                   closeIconSize={20}
+                  closeOnOverlayClick
                 >
                   <Login />
                 </Modal>

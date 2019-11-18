@@ -1,0 +1,44 @@
+.autocomplete {
+  display: block;
+  margin-top: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2%;
+  width: 80%;
+}
+.jumbotron-finding {
+  align-items: center;
+  background-image: url('../assets/images/bg-finding-page.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 150px; /* Add this */
+  color: white;
+  border-radius: 0;
+  margin: 0;
+}
+.card {
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.card-media {
+  height: 140;
+}
+h2, div {
+  text-align: left;
+}
+p {
+  margin-bottom: 0px;
+
+}
+.expand {
+  transform: "rotate(0deg)";
+  margin-left: "auto";
+  /* transition: theme.transitions.create("transform", {
+    duration: theme.transitions.duration.shortest
+  }) */
+}
+.expandOpen {
+  transform: "rotate(180deg)";
+}

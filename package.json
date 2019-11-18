@@ -3,13 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "axios": "^0.19.0",
+=======
+    "@material-ui/core": "^4.6.1",
+    "@material-ui/icons": "^4.5.1",
+    "@material-ui/lab": "^4.0.0-alpha.32",
+>>>>>>> 944004445762fe7860b35d316e054529d9b6156b
     "bootstrap": "^4.3.1",
+    "classnames": "^2.2.6",
     "firebase": "^7.2.0",
     "formik": "^1.5.8",
+    "material-table": "^1.54.1",
     "mdbreact": "^4.21.0",
     "react": "^16.10.2",
     "react-bootstrap": "^1.0.0-beta.14",
+    "react-delay-render": "^0.1.2",
     "react-dom": "^16.10.2",
     "react-geocode": "^0.2.0",
     "react-google-autocomplete": "^1.1.2",
@@ -17,6 +26,7 @@
     "react-responsive-modal": "^4.0.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
+    "react-spacer": "^1.2.0",
     "yup": "^0.27.0"
   },
   "scripts": {

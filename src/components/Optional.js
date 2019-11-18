@@ -22,47 +22,45 @@ export default class Optional extends Component {
           <div class="container-fluid">
             <Row className="text-center">
               <Col xs={12} sm={3} className="card-center">
-                <Card className="card-body" text="white">
+                <Card className="card-body zoom-op" text="white">
                   <Card.Body>
                     <Card.Img
                       variant="top"
                       src={logo1}
                       style={{ width: "30%" }}
                     />
-                    <Card.Title className="card-tile-style">
+                    <Card.Text>
                       Find asthma agents by name
-                    </Card.Title>
+                    </Card.Text>
                   </Card.Body>
                 </Card>
                 <br />
               </Col>
               <Col xs={12} sm={3} className="card-center">
-                <Card className="card-body" text="white">
+                <Card className="card-body zoom-op" text="white">
                   <Card.Body>
                     <Card.Img
                       variant="top"
                       src={logo1}
                       style={{ width: "30%" }}
                     />
-                    <Card.Title className="card-tile-style">
-                      Find asthma agents by work
-                    </Card.Title>
+                    <Card.Text>Find asthma agents by work</Card.Text>
                   </Card.Body>
                 </Card>
                 <br />
               </Col>
               <Col xs={12} sm={3} className="card-center">
-                <Link to="/ForwardGuideline" style={{ textDecoration: 'none' }}>
-                  <Card className="card-body" text="white">
+                <Link to="/ForwardGuideline" style={{ textDecoration: "none" }}>
+                  <Card className="card-body zoom-op" text="white">
                     <Card.Body>
                       <Card.Img
                         variant="top"
                         src={logo2}
                         style={{ width: "30%" }}
                       />
-                      <Card.Title className="card-tile-style">
+                      <Card.Text>
                         Referral information
-                      </Card.Title>
+                      </Card.Text>
                     </Card.Body>
                   </Card>
                 </Link>
@@ -70,16 +68,16 @@ export default class Optional extends Component {
                 <br />
               </Col>
               <Col xs={12} sm={3} className="card-center">
-                <Card className="card-body" text="white">
+                <Card className="card-body zoom-op" text="white">
                   <Card.Body>
                     <Card.Img
                       variant="top"
                       src={logo3}
                       style={{ width: "30%" }}
                     />
-                    <Card.Title className="card-tile-style">
+                    <Card.Text>
                       Treatment guidelines
-                    </Card.Title>
+                    </Card.Text>
                   </Card.Body>
                 </Card>
                 <br />
@@ -87,7 +85,6 @@ export default class Optional extends Component {
             </Row>
           </div>
         </div>
-
       </div>
     );
   }

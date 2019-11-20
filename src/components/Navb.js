@@ -16,6 +16,7 @@ import {
 } from "mdbreact";
 import auth from "../firebase";
 import Home from "./Home";
+import { Link } from "react-router-dom";
 
 export default class navbar extends Component {
   constructor(props) {
@@ -100,11 +101,11 @@ export default class navbar extends Component {
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default" right>
                     { showLogIn 
-                        ? <MDBDropdownItem onClick={(new Home().onOpenModal)}>Log In</MDBDropdownItem>
+                        ? <Link><MDBDropdownItem onClick={(new Home().onOpenModal())}>Log In</MDBDropdownItem></Link>
                         : null
                     }
                     { showSignUp 
-                        ? <MDBDropdownItem href="/signUp">Sign Up</MDBDropdownItem>
+                        ? <Link to="/SignUp"><MDBDropdownItem>Sign Up</MDBDropdownItem></Link>
                         : null
                     }
                     { showLogout 

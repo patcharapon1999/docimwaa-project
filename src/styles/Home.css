@@ -35,6 +35,7 @@
   border-radius: 0;
   padding: 10px;
   background-color: #3D3D3D;
+
 }
 
 .ad-bar {
@@ -50,39 +51,29 @@
   background-image: linear-gradient(to right, #0062FF, #00F8FF);
 }
 
-.glyphicon-menu-down{
+.glyphicon-menu-down {
   color: white;
 }
 
-.img-down-up{
+.img-down-up {
   width: 50px;
   padding-bottom: 50px;
   opacity: 0.5;
 }
 
-.img-down-up:hover{
+.img-down-up:hover {
   opacity: 0.7;
-	transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
 }
 
-.zoom {
-  transition: transform .2s; /* Animation */
+.zoom-home {
+  transition: transform .2s;
+  /* Animation */
   margin: 0 auto;
   transition: .5s ease;
-
 }
 
-.zoom:hover {
-  transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-  opacity: .5;
-}
-
-
-.hover11 figure img {
-	opacity: 1;
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
-}
-.hover11 figure:hover img {
-	opacity: .5;
+.zoom-home:hover {
+  transform: scale(1.2);
+  /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }

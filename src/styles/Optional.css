@@ -16,9 +16,12 @@
     margin-top: 20px;
 }
 
+
 .header-name {
+    margin-top: 50px;
     font-size: 35px;
 }
+
 
 #grad-line {
     height: 10px;
@@ -27,7 +30,19 @@
 }
 
 .option-content{
-    background-color: #F4F4F4;
-    padding-top: 150px;
-    padding-bottom: 150px;
+    /* background-color: #F4F4F4; */
+    padding-top: 15%;
+    padding-bottom: 10%;
+  }
+
+  .zoom-op {
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+    transition: .5s ease;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  
+  .zoom-op:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   }

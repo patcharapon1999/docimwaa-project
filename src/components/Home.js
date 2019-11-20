@@ -24,8 +24,6 @@ export default class Home extends Component {
     this.state = {
       open: false,
       open1: false,
-      open2: false,
-      open3: false,
       iconChange: iconDown,
       txt: "Log in",
       currentUser: null
@@ -57,7 +55,6 @@ export default class Home extends Component {
   }
 
   onOpenModal = () => {
-    /////////////
     auth.onAuthStateChanged(user => {
       if (user) {
         this.setState({ currentUser: user });
@@ -76,9 +73,6 @@ export default class Home extends Component {
   render() {
     const { open } = this.state; //open login modal
     const { open1 } = this.state;
-    const { open2 } = this.state;
-    const { open3 } = this.state;
-    const { iconChange } = this.state;
     const { txt } = this.state;
 
     return (
@@ -121,17 +115,17 @@ export default class Home extends Component {
         <div id="grad-line-home"></div>
 
         <div className="ad-bar">
-          <div>
+          {/* <div>
             <img
               class="img-fluid rounded mx-auto d-block img-down-up"
               src={this.state.iconChange}
               onClick={this.changeIcon}
             ></img>
-          </div>
+          </div> */}
           <Container>
             <Row className="text-center">
               <Col xs={12} sm={4} className="card-center">
-                <Card className="card-body zoom overlay" text="white">
+                <Card className="card-body zoom-home" text="white">
                   <Card.Body
                     onClick={this.changeIcon}
                     aria-controls="example-collapse-text"
@@ -151,13 +145,13 @@ export default class Home extends Component {
                         </div>
                       </Collapse>
                     </Card.Text>
-                    <h2></h2>
                   </Card.Body>
                 </Card>
                 <br />
+
               </Col>
               <Col xs={12} sm={4} className="card-center">
-                <Card className="card-body zoom" text="white">
+                <Card className="card-body zoom-home" text="white">
                   <Card.Body
                     onClick={this.changeIcon}
                     aria-controls="example-collapse-text"
@@ -181,9 +175,10 @@ export default class Home extends Component {
                   </Card.Body>
                 </Card>
                 <br />
+
               </Col>
               <Col xs={12} sm={4} className="card-center">
-                <Card className="card-body zoom" text="white">
+                <Card className="card-body zoom-home" text="white">
                   <Card.Body
                     onClick={this.changeIcon}
                     aria-controls="example-collapse-text"

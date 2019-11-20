@@ -35,6 +35,7 @@
   border-radius: 0;
   padding: 10px;
   background-color: #3D3D3D;
+  text-align: center;
 
 }
 
@@ -76,4 +77,8 @@
 .zoom-home:hover {
   transform: scale(1.2);
   /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.txt-style-banner {
+  text-align: center;
 }

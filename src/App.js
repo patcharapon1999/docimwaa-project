@@ -11,6 +11,8 @@ import SearchByJob from "./components/SearchingByJob";
 import ForwardGuideline from "./components/ForwardGuideline";
 import About from "./components/About";
 import FindingAgent from "./components/FindingAgent";
+import FindingJob from "./components/FindingJob";
+import AdminPage from "./components/AdminPage";
 import NoMatch from "./components/NoMatch";
 import Navbar from "./components/Navb";
 import test from "./components/mt";
@@ -31,6 +33,8 @@ class App extends Component {
               <Route path="/forwardGuideline" component={ForwardGuideline} />
               <Route path="/About" component={About} />
               <Route path="/FindingAgent" component={FindingAgent} />
+              <Route path="/FindingJob" component={FindingJob} />
+              <Route path="/AdminPage" component={AdminPage} />
               <Route path="/test" component={test} />
               <Route component={NoMatch} />
             </Switch>

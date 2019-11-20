@@ -1,6 +1,6 @@
 import React from "react";
 import { Jumbotron, Container } from "react-bootstrap";
-import "../styles/FindingAgent.css";
+import "../styles/FindingJob.css";
 import firebase from "firebase";
 import config from "../firebase/config";
 import TextField from "@material-ui/core/TextField";
@@ -14,13 +14,14 @@ import TablePagination from "@material-ui/core/TablePagination";
 import Autocomplete, { createFilterOptions } from "@material-ui/lab/Autocomplete";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-export default class FindingAgent extends React.Component {
+export default class FindingJob extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       items: [],
       defaultItems: [],
-      expanded: false,
+      jobLst: [],
+      defaultJobLst: [],
       textFieldValue: "",
       page: 0,
       rowsPerPage: 10,
@@ -33,24 +34,34 @@ export default class FindingAgent extends React.Component {
   }
   async getData() {
     var app;
-    var agentsLst = [];
+    var lst = [];
     if (!firebase.apps.length) {
       app = firebase.initializeApp(config);
     }
     var db = firebase.firestore(app);
     const querySnapshot = await db
       .collection("agents")
-      .where("type", "==", "LMW")
+      .where("query", "==", "true")
       .get();
     querySnapshot.forEach(function(doc) {
       const data = doc.data();
-      data.expanded = false;
-      agentsLst.push(data);
+      lst.push(data);
     });
-    agentsLst.sort((a, b) => a.agent.localeCompare(b.agent));
-    console.log(agentsLst.sort((a, b) => a.agent.localeCompare(b.agent)))
-    this.setState({ items: agentsLst });
-    this.setState({ defaultItems: agentsLst });
+    const newLst = [];
+    for (var i = 0; i < lst.length; i++) {
+      const jtTxt = lst[i].jt.split("#");
+      for (var j = 0; j < jtTxt.length; j++) {
+        if (!newLst.includes(jtTxt[j])) {
+          newLst.push(jtTxt[j])
+        }
+      }
+    }
+    newLst.sort((a, b) => a.localeCompare(b));
+    lst.sort((a, b) => a.jt.localeCompare(b.jt));
+    this.setState({ jobLst: newLst });
+    this.setState({ defaultJobLst: newLst });
+    this.setState({ items: lst });
+    this.setState({ defaultItems: lst });
   }
   handleChange(e) {
     console.log(e.target.toString());
@@ -59,47 +70,32 @@ export default class FindingAgent extends React.Component {
       e.target.toString().includes("[object SVGSVGElement]") ||
       e.target.toString().includes("[object HTMLButtonElement]")
     ) {
-      this.setState({ items: this.state.defaultItems });
+      this.setState({ jobLst: this.state.defaultJobLst });
     } else {
       const select = [];
-      const lst = this.state.items;
+      const lst = this.state.jobLst;
       for (var i = 0; i < lst.length; i++) {
-        if (lst[i]["agent"] === e.target.innerHTML) {
+        if (lst[i] === e.target.innerHTML) {
           select.push(lst[i]);
-          this.setState({ items: select });
+          this.setState({ jobLst: select });
         }
       }
-    }
-  }
-  handleExpandClick(e, item) {
-    if (item.expanded) {
-      item.expanded = false;
-      this.setState(item);
-    } else {
-      item.expanded = true;
-      this.setState(item);
     }
   }
   handleChangeTxtF(e) {
     const select = [];
     if (e.target.value == "") {
-      this.setState({ items: this.state.defaultItems });
-    } else if (
-      this.state.defaultItems.some(item =>
-        item.agent.toLowerCase().includes(e.target.value.toLowerCase())
-      )
-    ) {
-      const lst = this.state.defaultItems;
+      this.setState({ jobLst: this.state.defaultJobLst });
+    } else {
+      const lst = this.state.defaultJobLst;
       for (var i = 0; i < lst.length; i++) {
         if (
-          lst[i]["agent"].toLowerCase().substring(0, e.target.value.length) ==
-          e.target.value.toLowerCase()
+          lst[i].toLowerCase().substring(0, e.target.value.length) == e.target.value.toLowerCase()
         ) {
-          console.log(lst[i]);
           select.push(lst[i]);
         }
       }
-      this.setState({ items: select });
+      this.setState({ jobLst: select });
     }
   }
   keyPress(e) {
@@ -107,16 +103,26 @@ export default class FindingAgent extends React.Component {
       this.handleChangeTxtF(e);
     }
   }
+  matchData(item) {
+    const dataLst = this.state.defaultItems;
+    const lst = [];
+    for (var i = 0; i < dataLst.length; i++ ) {
+      if (dataLst[i].jt.includes(item)) {
+        lst.push(dataLst[i])
+      }
+    }
+    return lst
+  }
 
   render() {
-    const { items } = this.state;
+    const { jobLst } = this.state;
     const { page } = this.state;
     const { rowsPerPage } = this.state;
     const { query } = this.state;
 
     const filterOptions = createFilterOptions({
       matchFrom: "start",
-      stringify: option => option.agent
+      stringify: option => option
     });
     const handleChangePage = (event, newPage) => {
       this.setState({ page: newPage });
@@ -132,10 +138,10 @@ export default class FindingAgent extends React.Component {
 
 
     return (
-      <div className="FindingAgent">
-        <Jumbotron className="jumbotron-finding-agent">
+      <div className="FindingJob">
+        <Jumbotron className="jumbotron-finding-job">
           <div className="header-finding">
-            <h1 className="header-name">Finding Agents</h1>
+            <h1 className="header-name">Finding by Jobs</h1>
           </div>
         </Jumbotron>
         <div id="grad-line"></div>
@@ -143,11 +149,11 @@ export default class FindingAgent extends React.Component {
         <Container className="pageBody">
           <Autocomplete
             freeSolo
-            className="autocomplete-agent"
-            id="combo-box-agent-group"
-            options={items}
+            className="autocomplete-job"
+            id="combo-box-jobs"
+            options={jobLst}
             getOptionLabel={option =>
-              typeof option === "string" ? option : option.agent
+              typeof option === "string" ? option : option
             }
             filterOptions={filterOptions}
             onChange={this.handleChange.bind(this)}
@@ -155,7 +161,7 @@ export default class FindingAgent extends React.Component {
               <TextField
                 {...params}
                 value={this.state.textFieldValue}
-                label="Find Agents"
+                label="Find by Job"
                 variant="outlined"
                 fullWidth
                 onKeyDown={this.keyPress.bind(this)}
@@ -170,57 +176,26 @@ export default class FindingAgent extends React.Component {
               <CircularProgress />
             </div>
           ) : (
-            items
+            jobLst
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map(item => {
                 return (
-                  <Card className="card" key={item.agent}>
+                  <Card className="card" key={item}>
                     <CardContent>
-                      <h4 className="h4A">
-                        <b>{item.agent}</b>
+                      <h4 className="h4">
+                        <b>{item}</b>
                       </h4>
-                      <Typography>
-                        <div className="divA">
-                          <b style={ulStyle}>Job Task:</b>
-                          <ul style={ulStyle}>
-                            {item.jt.split("#").map((item, i) => {
-                              return <li key={i}>{item}</li>;
-                            })}
-                          </ul>
-                        </div>
-                      </Typography>
+                   
+                      <div className="div">
+                        <b style={ulStyle}>Agents:</b>
+                        <ul style={ulStyle}>
+                          {this.matchData(item).map((item, i) => {
+                            return <li key={i}>{item.agent} <ul><li><b>Group:</b> {item.group}</li> <li><b>Type:</b> {item.type}</li></ul></li>;
+                          })}
+                        </ul>
+                      </div>
+                      
                     </CardContent>
-                    <IconButton
-                      className="iconDownButton"
-                      onClick={() => {
-                        this.handleExpandClick(this, item);
-                      }}
-                      aria-expanded={item.expanded}
-                      aria-label="show more"
-                    >
-                      <ExpandMoreIcon />
-                    </IconButton>
-                    <Collapse in={item.expanded} timeout="auto" unmountOnExit>
-                      <CardContent>
-                        <Typography className="pA">
-                          <b>Type:</b> {item.type}
-                        </Typography>
-                        <Typography className="pA">
-                          <b>Group:</b> {item.group}
-                        </Typography>
-                        <Typography className="pA">
-                          <b>Agent:</b> {item.agent}
-                        </Typography>
-                        <div className="divA">
-                          <b>Job Task:</b>
-                          <ul>
-                            {item.jt.split("#").map((item, i) => {
-                              return <li key={i}>{item}</li>;
-                            })}
-                          </ul>
-                        </div>
-                      </CardContent>
-                    </Collapse>
                   </Card>
                 );
               })
@@ -229,7 +204,7 @@ export default class FindingAgent extends React.Component {
           <TablePagination
             rowsPerPageOptions={[10, 25, 100]}
             component="div"
-            count={items.length}
+            count={jobLst.length}
             rowsPerPage={rowsPerPage}
             page={page}
             backIconButtonProps={{

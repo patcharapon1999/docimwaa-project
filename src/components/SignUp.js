@@ -12,6 +12,7 @@ import "../styles/SignUp.css";
 import auth from "../firebase";
 import firebase from "firebase";
 import config from "../firebase/config";
+import AlertModal from "./AlertModal";
 
 export default class SignUp extends Component {
   constructor(props) {
@@ -23,7 +24,9 @@ export default class SignUp extends Component {
       password: "",
       CFpasswoed: "",
       checkedA: "",
-      currentUser: null
+      currentUser: null,
+      modalShow: false,
+      errorMsg: ""
     };
   }
   onChange = e => {
@@ -35,13 +38,28 @@ export default class SignUp extends Component {
     e.preventDefault();
 
     const { email, password, CFpasswoed, Fname, Lname } = this.state;
+
     await auth
       .createUserWithEmailAndPassword(email, password)
-      .then(response => {
-        auth.signInWithEmailAndPassword(email, password);
-      })
-      .catch(error => {
-        console.log(error);
+      .catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        if (errorCode == "auth/weak-password") {
+          alert("The password is too weak.")
+          // this.setState({modalShow: true});
+          // this.setState({errorMsg: "The password is too weak."});
+        } else {
+          alert(errorMessage)
+          // this.setState({modalShow: true});
+          // this.setState({errorMsg: errorMessage});
+        }
+      });
+
+    await auth
+      .signInWithEmailAndPassword(email, password)
+      .catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
       });
 
     auth.onAuthStateChanged(function(user) {
@@ -70,7 +88,7 @@ export default class SignUp extends Component {
       } else {
       }
     });
-    this.props.history.push("/");
+    document.location.href = "/";
   };
 
   render() {
@@ -156,6 +174,16 @@ export default class SignUp extends Component {
               </Button>
             </Form>
           </Card>
+          {/* <AlertModal
+            msg={this.errorMsg}
+            header={"Error"}
+            show={this.modalShow}
+            onHide={() =>
+              this.setState({
+                modalShow: false
+              })
+            }
+          /> */}
         </Container>
       </div>
     );

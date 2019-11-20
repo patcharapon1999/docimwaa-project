@@ -40,8 +40,8 @@ export default class Home extends Component {
     }
   };
 
-  componentDidMount() {
-    auth.onAuthStateChanged(user => {
+  async componentDidMount() {
+     const res = await auth.onAuthStateChanged(user => {
       if (user) {
         document.getElementsByClassName("btnStyle")[0].style.backgroundColor =
           "red";

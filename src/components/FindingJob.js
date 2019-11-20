@@ -148,10 +148,11 @@ export default class FindingJob extends React.Component {
             freeSolo
             className="autocomplete"
             id="combo-box-jobs"
-            options={jobLst}
-            getOptionLabel={option =>
-              typeof option === "string" ? option : option
-            }
+            // options={jobLst}
+            // getOptionLabel={option =>
+            //   typeof option === "string" ? option : option
+            // }
+            disableClearable
             filterOptions={filterOptions}
             onChange={this.handleChange.bind(this)}
             renderInput={params => (

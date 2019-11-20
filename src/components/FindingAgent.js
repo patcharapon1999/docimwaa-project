@@ -146,10 +146,11 @@ export default class FindingAgent extends React.Component {
             freeSolo
             className="autocomplete"
             id="combo-box-agent-group"
-            options={items}
-            getOptionLabel={option =>
-              typeof option === "string" ? option : option.agent
-            }
+            disableClearable
+            // options={items}
+            // getOptionLabel={option =>
+            //   typeof option === "string" ? option : option.agent
+            // }
             filterOptions={filterOptions}
             onChange={this.handleChange.bind(this)}
             renderInput={params => (
@@ -180,27 +181,29 @@ export default class FindingAgent extends React.Component {
                       <h4 className="h4A">
                         <b>{item.agent}</b>
                       </h4>
-                      <Typography>
-                        <div className="divA">
-                          <b style={ulStyle}>Job Task:</b>
-                          <ul style={ulStyle}>
-                            {item.jt.split("#").map((item, i) => {
-                              return <li key={i}>{item}</li>;
-                            })}
-                          </ul>
-                        </div>
-                      </Typography>
+                      
+                      <div className="divA">
+                        <b style={ulStyle}>Job Task:</b>
+                        <ul style={ulStyle}>
+                          {item.jt.split("#").map((item, i) => {
+                            return <li key={i}>{item}</li>;
+                          })}
+                        </ul>
+                      </div>
+                      
                     </CardContent>
-                    <IconButton
-                      className="iconDownButton"
-                      onClick={() => {
-                        this.handleExpandClick(this, item);
-                      }}
-                      aria-expanded={item.expanded}
-                      aria-label="show more"
-                    >
-                      <ExpandMoreIcon />
-                    </IconButton>
+                    <div className="iconDownButton-div">
+                      <IconButton
+                        className="iconDownButton"
+                        onClick={() => {
+                          this.handleExpandClick(this, item);
+                        }}
+                        aria-expanded={item.expanded}
+                        aria-label="show more"
+                      >
+                        <ExpandMoreIcon />
+                      </IconButton>
+                    </div>
                     <Collapse in={item.expanded} timeout="auto" unmountOnExit>
                       <CardContent>
                         <Typography className="pA">

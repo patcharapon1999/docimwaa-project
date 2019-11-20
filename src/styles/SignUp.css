@@ -1,0 +1,49 @@
+.grad-line {
+  margin-bottom: 50px;
+}
+.card-container {
+  margin-bottom: 50px;
+  padding: 40px 20px 40px 20px;
+  width: 600px;
+  
+}
+.contained-card {
+  display: flex;
+  justify-content: center;
+}
+/* .form-check {
+  margin-bottom: 10px;
+} */
+.signup-btn {
+  width: 100%;
+  margin-top: 40px;
+}
+.Fn-feild {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  height: 50px;
+}
+/* .Fn-feild-label, .Ln-feild-label, .Em-feild-label, .Pw-feild-label, .Cp-feild-label {
+  margin-left: 10px;
+  margin-bottom: -20px;
+} */
+.Ln-feild {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  height: 50px;
+}
+.Em-feild {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  height: 50px;
+}
+.Pw-feild {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  height: 50px;
+}
+.Cp-feild {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  height: 50px;
+}

@@ -30,6 +30,8 @@ export default class FindingJob extends React.Component {
         <div id="grad-line"></div>
 
         <Container className="pageBody">
+
+          
           
         </Container>
       </div>

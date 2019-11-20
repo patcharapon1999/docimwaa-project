@@ -79,7 +79,7 @@ export default class Home extends Component {
       <div>
         <Jumbotron className="jumbotron-home">
           <div className="header-home">
-            <h1 className="header-name">
+            <h1 className="header-banner-name">
               Development of common in <br></br> mobile web application
               asthmagens.
             </h1>

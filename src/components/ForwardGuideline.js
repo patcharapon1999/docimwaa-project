@@ -120,7 +120,7 @@ export default class ForwardGuideline extends Component {
       <div>
         <Jumbotron className="jumbotron-option">
           <div className="header-forGuide">
-            <h1 className="header-name">Referral information</h1>
+            <h1 className="header-name-fwg">Referral information</h1>
           </div>
         </Jumbotron>
         <div id="grad-line"></div>

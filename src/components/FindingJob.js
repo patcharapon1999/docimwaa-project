@@ -138,7 +138,7 @@ export default class FindingJob extends React.Component {
       <div className="FindingJob">
         <Jumbotron className="jumbotron-finding-job">
           <div className="header-finding">
-            <h1 className="header-name">Finding by Jobs</h1>
+            <h1 className="header-name-job">Finding by Jobs</h1>
           </div>
         </Jumbotron>
         <div id="grad-line"></div>

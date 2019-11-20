@@ -129,7 +129,7 @@ export default class ForwardGuideline extends Component {
           <Row>
             <Col sm={6}>
               <div style={{ marginTop: "100px" }}>
-                <Image src={fwd} className="img-fwd" />
+                <Image src={fwd} className="img-fwd" style={{ boxShadow: "0px 6px 20px #9E9E9E"}}/>
               </div>
             </Col>
             <Col sm={6}>

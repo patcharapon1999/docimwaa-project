@@ -10,7 +10,7 @@ export default function About() {
         <Row>
           <Col xs={12} md={8}>
             <div style={{ marginTop: "100px" }}>
-              <Image src={aboutImg} style={{ width: "100%" }} />
+              <Image src={aboutImg} style={{ width: "100%" ,  boxShadow: "0px 6px 20px #9E9E9E"}} />
             </div>
           </Col>
           <Col xs={12} md={4}>
@@ -44,7 +44,7 @@ export default function About() {
           </Col>
           <Col xs={12} md={8}>
             <div style={{ marginTop: "50px", marginBottom: "50px" }}>
-              <Image src={aboutImg2} style={{ width: "100%" }} />
+              <Image src={aboutImg2} style={{ width: "100%" ,  boxShadow: "0px 6px 20px #9E9E9E"}} />
             </div>
           </Col>
         </Row>

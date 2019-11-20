@@ -21,9 +21,9 @@ export default class FindingJob extends React.Component {
    
 
     return (
-      <div className="FindingJob">
-        <Jumbotron className="jumbotron-finding">
-          <div className="header-finding">
+      <div className="AdminPage">
+        <Jumbotron className="jumbotron-admin">
+          <div className="header-admin">
             <h1 className="header-name">Admin</h1>
           </div>
         </Jumbotron>

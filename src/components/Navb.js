@@ -101,7 +101,7 @@ export default class navbar extends Component {
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default" right>
                     { showLogIn 
-                        ? <Link><MDBDropdownItem onClick={(new Home().onOpenModal())}>Log In</MDBDropdownItem></Link>
+                        ? <Link><MDBDropdownItem >Log In</MDBDropdownItem></Link>
                         : null
                     }
                     { showSignUp 

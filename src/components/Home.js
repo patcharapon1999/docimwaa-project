@@ -136,10 +136,10 @@ export default class Home extends Component {
                       src={logo1}
                       style={{ width: "20%" }}
                     />
-                    <Card.Title className="card-tile-style">Finding</Card.Title>
+               <Card.Title className="txt-style-banner">Finding</Card.Title>
                     <Card.Text>
                       <Collapse in={this.state.open1}>
-                        <div id="example-collapse-text">
+                        <div className="txt-style-banner">
                           Find the asthma agents by work and Find the asthma
                           agents by name
                         </div>
@@ -162,12 +162,12 @@ export default class Home extends Component {
                       src={logo2}
                       style={{ width: "20%" }}
                     />
-                    <Card.Title className="card-tile-style">
+                    <Card.Title className="txt-style-banner">
                       Referral information
                     </Card.Title>
                     <Card.Text>
                       <Collapse in={this.state.open1}>
-                        <div id="example-collapse-text">
+                        <div className="txt-style-banner">
                           show the referral information by using GPS
                         </div>
                       </Collapse>
@@ -189,12 +189,12 @@ export default class Home extends Component {
                       src={logo3}
                       style={{ width: "20%" }}
                     />
-                    <Card.Title className="card-tile-style">
+                    <Card.Title className="txt-style-banner">
                       Treatment guidelines
                     </Card.Title>
                     <Card.Text>
                       <Collapse in={this.state.open1}>
-                        <div id="example-collapse-text">
+                        <div className="txt-style-banner">
                           Show the treatment guidelines
                         </div>
                       </Collapse>

@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import firebase from "firebase";
+import config from "../firebase/config";
+import Delay from "react-delay";
+
 import {
   Jumbotron,
   Row,
@@ -10,9 +14,108 @@ import {
 } from "react-bootstrap";
 import MapAPI from "./MapAPI";
 import "../styles/ForwardGuideline.css";
+import { Autocomplete } from "@material-ui/lab";
+import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
+import ForwardGuidelineModal from "./ForwardGuidelineModal";
 
 export default class ForwardGuideline extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: [],
+      defaultItems: [],
+      expanded: false,
+      docInfoReg: [],
+      docInfo: [],
+      modalShow: false,
+      name: "",
+      lat: 0,
+      lng: 0,
+      hospital: "",
+      address: "",
+      cellPhone: "",
+      region:""
+    };
+    this.getDocReg = this.getDocReg.bind(this);
+    this.getDocRegInfo = this.getDocRegInfo.bind(this);
+  }
+  async componentWillMount() {
+    await this.getData();
+  }
+  async getData() {
+    var app;
+    var nameLst = [];
+    if (!firebase.apps.length) {
+      app = firebase.initializeApp(config);
+    }
+    var db = firebase.firestore(app);
+    const querySnapshot = await db.collection("forwardInfo").get();
+    querySnapshot.forEach(function(doc) {
+      nameLst.push(doc.data());
+    });
+    console.log("get data complete");
+    this.setState({ items: nameLst });
+    console.log(this.state.items);
+  }
+
+  getDocReg(e) {
+    const temp_docInfoReg = [];
+    const selected_region = e.target.innerHTML;
+    this.state.items.forEach(item => {
+      var region = item.region;
+      //console.log("region " + region);
+      //console.log("selected " + selected_region);
+      if (region === selected_region) {
+        //console.log("this true");
+        temp_docInfoReg.push(item);
+      }
+    });
+    //console.log(temp_docInfoReg);
+    this.setState({ docInfoReg: temp_docInfoReg });
+    //console.log(this.state.docInfoReg);
+  }
+
+  getDocRegInfo(e) {
+    const temp_docInfo = [];
+    const selected_docInfo = e.target.innerHTML;
+    this.state.docInfoReg.forEach(item => {
+      const docName = item.name;
+      //console.log("selected " + selected_docInfo);
+      if (selected_docInfo.includes(docName)) {
+        //console.log("this true");
+        temp_docInfo.push(item);
+      }
+    });
+    console.log(temp_docInfo[0].name);
+    //update
+    this.setState({ name: temp_docInfo[0].name });
+    this.setState({ lat: temp_docInfo[0].lat });
+    this.setState({ lng: temp_docInfo[0].lng });
+    this.setState({ address: temp_docInfo[0].address });
+    this.setState({ cellPhone: temp_docInfo[0].cellPhone });
+    this.setState({ region: temp_docInfo[0].region });
+    this.setState({ docInfo: temp_docInfo });
+    //console.log(this.state.docInfo);
+  }
+
+  handleFormSubmit = formSubmitEvent => {
+    formSubmitEvent.preventDefault();
+    // console.log("this docInfo");
+    // console.log(this.state.docInfo[0].name);
+    // console.log(this.state.docInfo[0].lat);
+    // console.log(this.state.docInfo[0].lng);
+  };
+
   render() {
+    const { docInfoReg } = this.state;
+    const regionsLst = [
+      { reg: "ภาคกลาง" },
+      { reg: "ภาคเหนือ" },
+      { reg: "ภาคอีสาน" },
+      { reg: "ภาคตะวันออก" },
+      { reg: "ภาคใต้" }
+    ];
     return (
       <div>
         <Jumbotron className="jumbotron-option">
@@ -24,63 +127,66 @@ export default class ForwardGuideline extends Component {
 
         <Container>
           <Row>
-            <Col sm={8}>
+            <Col sm={4}>
               <div style={{ margin: "50px" }}>
-                <MapAPI
-                  google={this.props.google}
-                  center={{ lat: 13.736717, lng: 100.523186 }}
-                  height="500px"
-                  zoom={15}
-                />
+                
               </div>
             </Col>
-            <Col sm={4}>
-              <div style = {{margin: "50px 0 0 0"}}>
-                <Form>
+            <Col sm={8}>
+              <div style={{ margin: "50px 0 0 0" }}>
+                <Form onSubmit={this.handleFormSubmit}>
                   <div>
                     <h1>Referral information</h1>
                   </div>
                   <Form.Group as={Col} controlId="formGridState">
                     <Form.Label>Region</Form.Label>
-                    <Form.Control as="select">
-                      <option>Northern</option>
-                      <option>Northeastern</option>
-                      <option>Central</option>
-                      <option>West</option>
-                      <option>Eastern</option>
-                      <option>Southern</option>
-                    </Form.Control>
+                    <Autocomplete
+                      freeSolo
+                      id="free-solo-2-demo"
+                      disableClearable
+                      options={regionsLst.map(option => option.reg)}
+                      onChange={this.getDocReg}
+                      renderInput={params => (
+                        <TextField
+                          {...params}
+                          label="Search input"
+                          margin="normal"
+                          variant="outlined"
+                          fullWidth
+                          InputProps={{ ...params.InputProps, type: "search" }}
+                        />
+                      )}
+                    />
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="formGridState">
-                    <Form.Label>Hospital</Form.Label>
-                    <Form.Control as="select">
-                      <option>A</option>
-                      <option>B</option>
-                      <option>C</option>
-                      <option>D</option>
-                      <option>E</option>
-                      <option>S</option>
-                    </Form.Control>
+                    <Form.Label>Hospital and Doctor</Form.Label>
+                    <Autocomplete
+                      freeSolo
+                      id="free-solo-2-demo"
+                      disableClearable
+                      options={docInfoReg.map(
+                        option => option.name + "(" + option.hospital + ")"
+                      )}
+                      onChange={this.getDocRegInfo}
+                      renderInput={params => (
+                        <TextField
+                          {...params}
+                          label="Search input"
+                          margin="normal"
+                          variant="outlined"
+                          fullWidth
+                          InputProps={{ ...params.InputProps, type: "search" }}
+                        />
+                      )}
+                    />
                   </Form.Group>
-
-                  <Form.Group as={Col} controlId="formGridState">
-                    <Form.Label>Doctor</Form.Label>
-                    <Form.Control as="select">
-                      <option>อ.นพ กัมปนาท วัง แสน</option>
-                      <option>รศ.ดร.พญ.เนสินี ไชยเอีย</option>
-                      <option>นพ.ภาณุมาศ ไกรสร</option>
-                      <option>พญ.วริษา สุนทรวินิต </option>
-                      <option>นพ.อดุลย์ บัณฑุกุล</option>
-                      <option>พญ.อรพรรณ ชัยมณี</option>
-                    </Form.Control>
-                  </Form.Group>
-
                   <Container>
                     <Button
-                      variant="primary"
+                      className="submit-btn"
                       type="submit"
                       style={{ width: "50%" }}
+                      onClick={() => this.setState({ modalShow: true })}
                     >
                       Search
                     </Button>
@@ -89,6 +195,21 @@ export default class ForwardGuideline extends Component {
               </div>
             </Col>
           </Row>
+          <ForwardGuidelineModal
+            show={this.state.modalShow}
+            onHide={() =>
+              this.setState({
+                modalShow: false
+              })
+            }
+            google={this.props.google}
+            name={this.state.name}
+            lat={this.state.lat}
+            lng={this.state.lng}
+            address={this.state.address}
+            cellPhone={this.state.cellPhone}
+            region={this.state.region}
+          />
         </Container>
       </div>
     );

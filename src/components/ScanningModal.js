@@ -19,7 +19,6 @@ export default function ScanningModal(props) {
         <p>{props.msg}</p>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
         <Link to="/optional">
           <Button>Next</Button>
         </Link>

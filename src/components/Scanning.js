@@ -63,10 +63,10 @@ export default class Scanning extends Component {
       this.state.selectedOption3 === "1" &&
       this.state.selectedOption4 === "1"
     ) {
-      this.setState({msgResult: "เสี่ยงน่ะจ๊ะ"});
+      this.setState({msgResult: "ท่านมีความเสี่ยงที่จะเป็นโรคหอมหืด"});
       console.log("collect");
     }else{
-      this.setState({msgResult: "ไม่เสี่ยนงน่ะจ๊ะ"})
+      this.setState({msgResult: "ยินดีตอนรับหน้าถัดไป"})
     }
   };
 

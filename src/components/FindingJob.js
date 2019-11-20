@@ -180,13 +180,13 @@ export default class FindingJob extends React.Component {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map(item => {
                 return (
-                  <Card className="card" key={item}>
+                  <Card className="cardJ" key={item}>
                     <CardContent>
-                      <h4 className="h4">
+                      <h4 className="h4J">
                         <b>{item}</b>
                       </h4>
                    
-                      <div className="div">
+                      <div className="divJ">
                         <b style={ulStyle}>Agents:</b>
                         <ul style={ulStyle}>
                           {this.matchData(item).map((item, i) => {

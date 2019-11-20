@@ -17,7 +17,8 @@ export default class Optional extends Component {
         </Jumbotron>
 
         <div id="grad-line"></div>
-
+        
+        
         <div className="option-content">
           <div class="container-fluid">
             <Row className="text-center">

@@ -174,7 +174,7 @@ export default class FindingAgent extends React.Component {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map(item => {
                 return (
-                  <Card className="card" key={item.agent}>
+                  <Card className="cardA" key={item.agent}>
                     <CardContent>
                       <h4 className="h4A">
                         <b>{item.agent}</b>

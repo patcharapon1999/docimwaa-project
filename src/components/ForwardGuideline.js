@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import firebase from "firebase";
 import config from "../firebase/config";
 import Delay from "react-delay";
-
 import {
   Jumbotron,
   Row,
@@ -10,7 +9,8 @@ import {
   Card,
   Container,
   Form,
-  Button
+  Button,
+  Image
 } from "react-bootstrap";
 import MapAPI from "./MapAPI";
 import "../styles/ForwardGuideline.css";
@@ -18,6 +18,7 @@ import { Autocomplete } from "@material-ui/lab";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import ForwardGuidelineModal from "./ForwardGuidelineModal";
+import fwd from "../assets/images/fwd.jpg";
 
 export default class ForwardGuideline extends Component {
   constructor(props) {
@@ -35,7 +36,7 @@ export default class ForwardGuideline extends Component {
       hospital: "",
       address: "",
       cellPhone: "",
-      region:""
+      region: ""
     };
     this.getDocReg = this.getDocReg.bind(this);
     this.getDocRegInfo = this.getDocRegInfo.bind(this);
@@ -127,13 +128,13 @@ export default class ForwardGuideline extends Component {
 
         <Container>
           <Row>
-            <Col sm={4}>
-              <div style={{ margin: "50px" }}>
-                
+            <Col sm={6}>
+              <div style={{ marginTop: "100px" }}>
+                <Image src={fwd} className="img-fwd" />
               </div>
             </Col>
-            <Col sm={8}>
-              <div style={{ margin: "50px 0 0 0" }}>
+            <Col sm={6}>
+              <div style={{ margin: "100px 0 0 0" }}>
                 <Form onSubmit={this.handleFormSubmit}>
                   <div>
                     <h1>Referral information</h1>

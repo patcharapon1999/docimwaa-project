@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Modal, Button, Row, Col, Image, Container } from "react-bootstrap";
 import MapAPI from "./MapAPI";
 import temp_img from "../assets/images/avatar.png";
+import "../styles/ForwardGuideline.css";
 
 export default function ForwardGuidelineModal(props) {
   return (
@@ -39,7 +40,7 @@ export default function ForwardGuidelineModal(props) {
               </tr>
             </Col>
             <Col xs={6} md={4}>
-                <Image src={temp_img} rounded />
+                <Image src={temp_img} className="img-avatar" />
             </Col>
           </Row>
         </div>

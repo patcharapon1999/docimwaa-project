@@ -16,6 +16,8 @@ import AdminPage from "./components/AdminPage";
 import NoMatch from "./components/NoMatch";
 import Navbar from "./components/Navb";
 import test from "./components/mt";
+import Footer from "./components/Footer";
+
 
 class App extends Component {
   render() {
@@ -39,6 +41,7 @@ class App extends Component {
               <Route component={NoMatch} />
             </Switch>
         </Router>
+        <Footer/>
       </React.Fragment>
     );
   }

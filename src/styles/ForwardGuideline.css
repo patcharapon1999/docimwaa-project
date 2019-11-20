@@ -1,7 +1,15 @@
-.container-search-doc{
-    margin: 50px 100px 50px 100px;
+.container-search-docInfo{
+    margin: 50px 100px 500px 100px;
 }
 
 .option-autocomp{
     font-size: 15;
+}
+
+.img-fwd{
+    width: 100%;
+}
+
+.img-avatar{
+    width: 100%;
 }

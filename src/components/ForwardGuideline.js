@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import firebase from "firebase";
 import config from "../firebase/config";
-import Delay from "react-delay";
-
 import {
   Jumbotron,
   Row,

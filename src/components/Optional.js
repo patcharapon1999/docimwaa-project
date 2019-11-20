@@ -20,34 +20,38 @@ export default class Optional extends Component {
         
         
         <div className="option-content">
-          <div class="container-fluid">
+          <div className="container-fluid">
             <Row className="text-center">
               <Col xs={12} sm={3} className="card-center">
-                <Card className="card-body zoom-op" text="white">
-                  <Card.Body>
-                    <Card.Img
-                      variant="top"
-                      src={logo1}
-                      style={{ width: "30%" }}
-                    />
-                    <Card.Text>
-                      Find asthma agents by name
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
+                <Link to="/FindingJob" style={{ textDecoration: "none" }}>
+                  <Card className="card-body zoom-op" text="white">
+                    <Card.Body>
+                      <Card.Img
+                        variant="top"
+                        src={logo1}
+                        style={{ width: "30%" }}
+                      />
+                      <Card.Text>
+                        Find asthma agents by name
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Link>
                 <br />
               </Col>
               <Col xs={12} sm={3} className="card-center">
-                <Card className="card-body zoom-op" text="white">
-                  <Card.Body>
-                    <Card.Img
-                      variant="top"
-                      src={logo1}
-                      style={{ width: "30%" }}
-                    />
-                    <Card.Text>Find asthma agents by work</Card.Text>
-                  </Card.Body>
-                </Card>
+                <Link to="/FindingJob" style={{ textDecoration: "none" }}>
+                  <Card className="card-body zoom-op" text="white">
+                    <Card.Body>
+                      <Card.Img
+                        variant="top"
+                        src={logo1}
+                        style={{ width: "30%" }}
+                      />
+                      <Card.Text>Find asthma agents by work</Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Link>
                 <br />
               </Col>
               <Col xs={12} sm={3} className="card-center">

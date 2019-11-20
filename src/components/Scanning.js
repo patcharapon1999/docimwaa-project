@@ -81,7 +81,7 @@ export default class Scanning extends Component {
         <div id="grad-line"></div>
         <Container className="qs-div">
           <Form onSubmit={this.handleFormSubmit}>
-            <Card>
+            <Card className="cardS">
               <Form.Group>
                 <Form.Label>Worse at home</Form.Label>
                 <br></br>
@@ -108,7 +108,7 @@ export default class Scanning extends Component {
               </Form.Group>
             </Card>
 
-            <Card>
+            <Card className="cardS">
               <Form.Group>
                 <Form.Label>Better when away from home</Form.Label>
                 <br></br>
@@ -135,7 +135,7 @@ export default class Scanning extends Component {
               </Form.Group>
             </Card>
 
-            <Card>
+            <Card className="cardS">
               <Form.Group>
                 <Form.Label>
                   Evidence of having known agent in the workplace
@@ -164,7 +164,7 @@ export default class Scanning extends Component {
               </Form.Group>
             </Card>
 
-            <Card>
+            <Card className="cardS">
               <Form.Group>
                 <Form.Label>
                   Evidence of having known agent in the workplace

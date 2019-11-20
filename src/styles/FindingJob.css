@@ -3,7 +3,7 @@
   width: 100%;
   overflow: hidden;
 }
-.autocomplete-job {
+.autocomplete {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -16,7 +16,7 @@
   background-image: url('../assets/images/bg-finding-page.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  height: 150px; /* Add this */
+  height: 200px; /* Add this */
   color: white;
   border-radius: 0;
   margin: 0;
@@ -38,4 +38,7 @@
   display: flex;
   justify-content: center;
   /* align-items: center; */
+}
+.MuiAutocomplete-root {
+  padding: 0px 0px 0px 0px;
 }

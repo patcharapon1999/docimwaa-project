@@ -64,12 +64,13 @@ export default class Login extends React.Component {
     return (
       <div className="login-div">
         <Form onSubmit={this.onSubmit}>
-          <Form.Group className="form-email">
+          <Form.Group >
             <h3 className="login-name">
               login to <b className="bold-name">DOCIMWAA</b>
               <label className="hiddenLabel">__</label>
             </h3>
             <Form.Control
+              className="form-email"
               type="email"
               placeholder="Enter email"
               name="email"

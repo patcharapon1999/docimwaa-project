@@ -43,3 +43,7 @@
 .MuiAutocomplete-root {
   padding: 0px 0px 0px 0px;
 }
+.header-name-job {
+  margin-top: 30px;
+  text-align: right;
+}

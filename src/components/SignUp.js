@@ -96,31 +96,35 @@ export default class SignUp extends Component {
       <div>
         <Jumbotron className="jumbotron-option">
           <div className="header-option">
-            <h1 className="header-name">Sigup</h1>
+            <h1 className="header-name-signup">Sign Up</h1>
           </div>
         </Jumbotron>
 
-        <div id="grad-line"></div>
-        <Container>
-          <Card>
+        <div className="grad-line"></div>
+        <Container className="contained-card">
+          <Card className="card-container">
             <Form onSubmit={this.onSubmit}>
               <Row>
                 <Col>
                   <Form.Group>
+                    {/* <label className="Fn-feild-label">First Name</label> */}
                     <Form.Control
+                      className="Fn-feild"
                       type="text"
                       name="Fname"
-                      placeholder="First name"
+                      placeholder="First Name*"
                       onChange={this.onChange}
                     />
                   </Form.Group>
                 </Col>
                 <Col>
                   <Form.Group>
+                    {/* <label className="Ln-feild-label">Last Name</label> */}
                     <Form.Control
+                      className="Ln-feild"
                       type="text"
                       name="Lname"
-                      placeholder="Last name"
+                      placeholder="Last Name*"
                       onChange={this.onChange}
                     />
                   </Form.Group>
@@ -130,9 +134,11 @@ export default class SignUp extends Component {
               <Row>
                 <Col>
                   <Form.Group>
+                    {/* <label className="Em-feild-label">E-mail</label> */}
                     <Form.Control
+                      className="Em-feild"
                       type="email"
-                      placeholder="E-mail"
+                      placeholder="E-mail*"
                       name="email"
                       onChange={this.onChange}
                     />
@@ -143,9 +149,11 @@ export default class SignUp extends Component {
               <Row>
                 <Col>
                   <Form.Group>
+                    {/* <label className="Pw-feild-label">Password</label> */}
                     <Form.Control
+                      className="Pw-feild"
                       type="password"
-                      placeholder="Password"
+                      placeholder="Password*"
                       name="password"
                       onChange={this.onChange}
                     />
@@ -155,10 +163,12 @@ export default class SignUp extends Component {
 
               <Row>
                 <Col>
-                  <Form.Group>
+                  <Form.Group>  
+                    {/* <label className="Cp-feild-label">Confirm Password</label> */}
                     <Form.Control
+                      className="Cp-feild"
                       type="password"
-                      placeholder="Confirm Password"
+                      placeholder="Confirm Password*"
                       name="cfPassword"
                       onChange={this.onChange}
                     />
@@ -166,11 +176,11 @@ export default class SignUp extends Component {
                 </Col>
               </Row>
 
-              <Form.Group className="chkbx">
+              {/* <Form.Group className="chkbx">
                 <Form.Check type="checkbox" label="Remember me" />
-              </Form.Group>
+              </Form.Group> */}
               <Button className="signup-btn" type="submit">
-                SUBMIT
+                  SIGNUP
               </Button>
             </Form>
           </Card>

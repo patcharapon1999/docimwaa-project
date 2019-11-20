@@ -136,7 +136,7 @@ export default class FindingAgent extends React.Component {
       <div className="FindingAgent">
         <Jumbotron className="jumbotron-finding-agent">
           <div className="header-finding">
-            <h1 className="header-name">Finding Agents</h1>
+            <h1 className="header-name-agent">Finding Agents</h1>
           </div>
         </Jumbotron>
         <div id="grad-line"></div>

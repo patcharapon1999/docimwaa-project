@@ -12,7 +12,7 @@ export default class Optional extends Component {
       <div>
         <Jumbotron className="jumbotron-option">
           <div className="header-option">
-            <h1 className="header-name">Optional</h1>
+            <h1 className="header-name-op">Optional</h1>
           </div>
         </Jumbotron>
 

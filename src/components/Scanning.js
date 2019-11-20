@@ -54,19 +54,36 @@ export default class Scanning extends Component {
       this.state.selectedOption4 === ""
     ) {
       console.log("invalid");
-      alert("invalid");
-      //this.setState({ modalShow: false });
-    } 
-    else if (
+      this.setState({ msgResult: "Please complete the form." });
+    } else if (
       this.state.selectedOption1 === "1" &&
       this.state.selectedOption2 === "1" &&
       this.state.selectedOption3 === "1" &&
       this.state.selectedOption4 === "1"
     ) {
-      this.setState({msgResult: "ท่านมีความเสี่ยงที่จะเป็นโรคหอมหืด"});
-      console.log("collect");
-    }else{
-      this.setState({msgResult: "ยินดีตอนรับหน้าถัดไป"})
+      this.setState({ msgResult: "You are vulnerable to asthma." });
+    } 
+  };
+
+  checkedScan = () => {
+    if (
+      this.state.selectedOption1 === "1" &&
+      this.state.selectedOption2 === "1" &&
+      this.state.selectedOption3 === "1" &&
+      this.state.selectedOption4 === "1"
+    ) {
+      this.setState({ modalShow: true });
+    }else if (
+      this.state.selectedOption1 === "" ||
+      this.state.selectedOption2 === "" ||
+      this.state.selectedOption3 === "" ||
+      this.state.selectedOption4 === ""
+    ){
+      this.setState({ modalShow: true });
+    }
+     else {
+      this.setState({ modalShow: false });
+      window.location.assign("/optional");
     }
   };
 
@@ -81,7 +98,7 @@ export default class Scanning extends Component {
         <div id="grad-line"></div>
         <Container className="qs-div">
           <Form onSubmit={this.handleFormSubmit}>
-            <Card>
+            <Card className="cardS">
               <Form.Group>
                 <Form.Label>Worse at home</Form.Label>
                 <br></br>
@@ -108,7 +125,7 @@ export default class Scanning extends Component {
               </Form.Group>
             </Card>
 
-            <Card>
+            <Card className="cardS">
               <Form.Group>
                 <Form.Label>Better when away from home</Form.Label>
                 <br></br>
@@ -135,7 +152,7 @@ export default class Scanning extends Component {
               </Form.Group>
             </Card>
 
-            <Card>
+            <Card className="cardS">
               <Form.Group>
                 <Form.Label>
                   Evidence of having known agent in the workplace
@@ -164,7 +181,7 @@ export default class Scanning extends Component {
               </Form.Group>
             </Card>
 
-            <Card>
+            <Card className="cardS">
               <Form.Group>
                 <Form.Label>
                   Evidence of having known agent in the workplace
@@ -196,7 +213,8 @@ export default class Scanning extends Component {
             <Button
               className="submit-btn"
               type="submit"
-              onClick={() => this.setState({ modalShow: true })}
+              onClick={this.checkedScan}
+              // {() => this.setState({ modalShow: true })}
             >
               Submit
             </Button>

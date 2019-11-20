@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import firebase from "firebase";
 import config from "../firebase/config";
-import Delay from "react-delay";
 import {
   Jumbotron,
   Row,
@@ -134,13 +133,12 @@ export default class ForwardGuideline extends Component {
               </div>
             </Col>
             <Col sm={6}>
-              <div style={{ margin: "100px 0 0 0" }}>
+              <div style={{ margin: "100px 0 50px 0" }}>
                 <Form onSubmit={this.handleFormSubmit}>
                   <div>
-                    <h1>Referral information</h1>
+                    <h1>Searching information</h1>
                   </div>
                   <Form.Group as={Col} controlId="formGridState">
-                    <Form.Label>Region</Form.Label>
                     <Autocomplete
                       freeSolo
                       id="free-solo-2-demo"
@@ -150,7 +148,7 @@ export default class ForwardGuideline extends Component {
                       renderInput={params => (
                         <TextField
                           {...params}
-                          label="Search input"
+                          label="Region"
                           margin="normal"
                           variant="outlined"
                           fullWidth
@@ -161,7 +159,6 @@ export default class ForwardGuideline extends Component {
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="formGridState">
-                    <Form.Label>Hospital and Doctor</Form.Label>
                     <Autocomplete
                       freeSolo
                       id="free-solo-2-demo"
@@ -173,7 +170,7 @@ export default class ForwardGuideline extends Component {
                       renderInput={params => (
                         <TextField
                           {...params}
-                          label="Search input"
+                          label="Specialist"
                           margin="normal"
                           variant="outlined"
                           fullWidth
@@ -186,7 +183,7 @@ export default class ForwardGuideline extends Component {
                     <Button
                       className="submit-btn"
                       type="submit"
-                      style={{ width: "50%" }}
+                      style={{ width: "50%", backgroundColor: "#0062FF"}}
                       onClick={() => this.setState({ modalShow: true })}
                     >
                       Search

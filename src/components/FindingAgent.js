@@ -1,5 +1,5 @@
 import React from "react";
-import { Jumbotron, Container } from "react-bootstrap";
+import { Jumbotron } from "react-bootstrap";
 import "../styles/FindingAgent.css";
 import firebase from "firebase";
 import config from "../firebase/config";
@@ -13,6 +13,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import TablePagination from "@material-ui/core/TablePagination";
 import Autocomplete, { createFilterOptions } from "@material-ui/lab/Autocomplete";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import Container from '@material-ui/core/Container';
 
 export default class FindingAgent extends React.Component {
   constructor(props) {
@@ -143,7 +144,7 @@ export default class FindingAgent extends React.Component {
         <Container className="pageBody">
           <Autocomplete
             freeSolo
-            className="autocomplete-agent"
+            className="autocomplete"
             id="combo-box-agent-group"
             options={items}
             getOptionLabel={option =>

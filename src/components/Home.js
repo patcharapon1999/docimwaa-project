@@ -89,27 +89,27 @@ export default class Home extends Component {
               work-related asthma agents for medical graduates <br></br> to help
               diagnose work-related asthma
             </p>
-            <p>
-              <div>
-                <input
-                  className="btnStyle"
-                  type="submit"
-                  onClick={this.onOpenModal}
-                  value={txt}
-                ></input>
-                {/* <Button className="btnStyle" onClick={this.onOpenModal} value={this.state.txt}></Button> */}
-                <Modal
-                  className="login-modal"
-                  onClose={this.onCloseModal}
-                  center={true}
-                  open={open}
-                  closeIconSize={20}
-                  closeOnOverlayClick
-                >
-                  <Login />
-                </Modal>
-              </div>
-            </p>
+        
+            <div>
+              <input
+                className="btnStyle"
+                type="submit"
+                onClick={this.onOpenModal}
+                value={txt}
+              ></input>
+              {/* <Button className="btnStyle" onClick={this.onOpenModal} value={this.state.txt}></Button> */}
+              <Modal
+                className="login-modal"
+                onClose={this.onCloseModal}
+                center={true}
+                open={open}
+                closeIconSize={20}
+                closeOnOverlayClick
+              >
+                <Login />
+              </Modal>
+            </div>
+            
           </div>
         </Jumbotron>
         <div id="grad-line-home"></div>
@@ -139,10 +139,10 @@ export default class Home extends Component {
                <Card.Title className="txt-style-banner">Finding</Card.Title>
                     <Card.Text>
                       <Collapse in={this.state.open1}>
-                        <div className="txt-style-banner">
+                        <label className="txt-style-banner">
                           Find the asthma agents by work and Find the asthma
                           agents by name
-                        </div>
+                        </label>
                       </Collapse>
                     </Card.Text>
                   </Card.Body>
@@ -167,9 +167,9 @@ export default class Home extends Component {
                     </Card.Title>
                     <Card.Text>
                       <Collapse in={this.state.open1}>
-                        <div className="txt-style-banner">
-                          show the referral information by using GPS
-                        </div>
+                        <label className="txt-style-banner">
+                          show the referral information <br></br> by using GPS
+                        </label>
                       </Collapse>
                     </Card.Text>
                   </Card.Body>
@@ -194,9 +194,9 @@ export default class Home extends Component {
                     </Card.Title>
                     <Card.Text>
                       <Collapse in={this.state.open1}>
-                        <div className="txt-style-banner">
-                          Show the treatment guidelines
-                        </div>
+                        <label className="txt-style-banner">
+                          Show the treatment <br></br> guidelines
+                        </label>
                       </Collapse>
                     </Card.Text>
                   </Card.Body>

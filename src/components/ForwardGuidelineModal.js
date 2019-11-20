@@ -47,7 +47,7 @@ export default function ForwardGuidelineModal(props) {
         <MapAPI
           google={props.google}
           center={{ lat: props.lat, lng: props.lng }}
-          height="300px"
+          height="200px"
           zoom={15}
         />
       </Modal.Body>

@@ -66,7 +66,7 @@ export default class Login extends React.Component {
       <div className="login-div">
         <Form onSubmit={this.onSubmit}>
           <Form.Group className="form-email">
-            <h3 className="login-name">login to <b className="bold-name">DOCIMWAA</b></h3>
+            <h3 className="login-name">login to <b className="bold-name">DOCIMWAA</b><label className="hiddenLabel">__</label></h3>
             <Form.Control type="email" placeholder="Enter email" name="email" onChange={this.onChange}/>
           </Form.Group>
 

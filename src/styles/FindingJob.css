@@ -3,7 +3,7 @@
   width: 100%;
   overflow: hidden;
 }
-.autocomplete-agent {
+.autocomplete-job {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -11,7 +11,7 @@
   margin-bottom: 2%;
   width: 70%;
 }
-.jumbotron-finding-agent {
+.jumbotron-finding-job {
   align-items: center;
   background-image: url('../assets/images/bg-finding-page.jpg');
   background-size: cover;
@@ -27,17 +27,15 @@
   margin-left: auto;
   margin-right: auto;
 }
-.divA {
+.div {
   text-align: left;
 }
-.h4A, .pA {
+.h4 {
   text-align: left;
 }
-
 .circleProgress {
   /* height: 100vh; */
   display: flex;
   justify-content: center;
   /* align-items: center; */
 }
-

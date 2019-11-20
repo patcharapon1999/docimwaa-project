@@ -1,0 +1,24 @@
+.FindingAgent {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.autocomplete {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  width: 70%;
+}
+.jumbotron-finding {
+  align-items: center;
+  background-image: url('../assets/images/admin.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 150px; /* Add this */
+  color: white;
+  border-radius: 0;
+  margin: 0;
+}
+
